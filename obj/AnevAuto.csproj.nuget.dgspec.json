@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\meane\\Programing\\SoftUni\\C#\\C# Web\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj": {}
+    "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\meane\\Programing\\SoftUni\\C#\\C# Web\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj": {
+    "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\meane\\Programing\\SoftUni\\C#\\C# Web\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj",
-        "projectName": "AnevAuto",
-        "projectPath": "C:\\Users\\meane\\Programing\\SoftUni\\C#\\C# Web\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj",
+        "projectUniqueName": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj",
+        "projectName": "Shop",
+        "projectPath": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\AnevAuto.csproj",
         "packagesPath": "C:\\Users\\meane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\meane\\Programing\\SoftUni\\C#\\C# Web\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\obj\\",
+        "outputPath": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\meane\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.15, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

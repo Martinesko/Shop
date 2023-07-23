@@ -1,4 +1,4 @@
-namespace AnevAuto
+namespace Shop
 {
     public class Program
     {

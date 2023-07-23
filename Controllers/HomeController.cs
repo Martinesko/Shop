@@ -1,10 +1,10 @@
-﻿using AnevAuto.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Shop.Models;
 
-namespace AnevAuto.Controllers
+namespace Shop.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -26,7 +26,7 @@ namespace AnevAuto.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? Microsoft.AspNetCore.Http.HttpContext.TraceIdentifier });
         }
     }
 }

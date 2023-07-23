@@ -1,4 +1,4 @@
-namespace AnevAuto.Models
+namespace Shop.Models
 {
     public class ErrorViewModel
     {
