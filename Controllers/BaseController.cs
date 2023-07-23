@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AnevAuto.Controllers
+namespace Shop.Controllers
 {
     public class BaseController : Controller
     {

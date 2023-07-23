@@ -1,4 +1,4 @@
-﻿namespace AnevAuto.Data.Models.Products
+﻿namespace Shop.Data.Models.Products
 {
     public class Car
     {

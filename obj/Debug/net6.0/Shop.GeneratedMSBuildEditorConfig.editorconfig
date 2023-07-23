@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\meane\Programing\ASP.NET Advanced\AnevAuto\AnevAuto
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Details/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

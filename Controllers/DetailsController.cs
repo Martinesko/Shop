@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AnevAuto.Controllers
+namespace Shop.Controllers
 {
     public class DetailsController : BaseController
     {
-        public IActionResult Index()
+        public IActionResult Details()
         {
             return View();
         }
