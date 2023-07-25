@@ -6,7 +6,7 @@ namespace Shop.Data.Models
     public class Order
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [ForeignKey("User")] 
@@ -17,6 +17,13 @@ namespace Shop.Data.Models
         public DateTime OrderDate { get; set; }
 
         [Required] public decimal OrderPrice => ShoppingCart.ShoppingCartItems.Sum(x => x.Product.Price);
+
+
+        [Required]
+        [ForeignKey("ShippingAddress")]
+        public Guid ShippingAddressId { get; set; }
+        public Address ShippingAddress { get; set; } = null!;
+
 
         [Required]
         [ForeignKey("OrderStatus")]

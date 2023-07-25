@@ -12,8 +12,8 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20230725011149_initial2")]
-    partial class initial2
+    [Migration("20230725222246_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -292,16 +292,17 @@ namespace Shop.Migrations
 
             modelBuilder.Entity("Shop.Data.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid>("OrderStatusId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ShippingAddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("ShoppingCartId")
@@ -313,6 +314,8 @@ namespace Shop.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderStatusId");
+
+                    b.HasIndex("ShippingAddressId");
 
                     b.HasIndex("ShoppingCartId");
 
@@ -582,6 +585,12 @@ namespace Shop.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Shop.Data.Models.Address", "ShippingAddress")
+                        .WithMany()
+                        .HasForeignKey("ShippingAddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Shop.Data.Models.ShoppingCart", "ShoppingCart")
                         .WithMany()
                         .HasForeignKey("ShoppingCartId")
@@ -595,6 +604,8 @@ namespace Shop.Migrations
                         .IsRequired();
 
                     b.Navigation("OrderStatus");
+
+                    b.Navigation("ShippingAddress");
 
                     b.Navigation("ShoppingCart");
 
