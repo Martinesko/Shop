@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
+using Microsoft.AspNetCore.Identity;
+using Shop.Data.Models;
+
 
 namespace Shop
 {
@@ -13,6 +16,9 @@ namespace Shop
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<ShopDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
+                        builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ShopDbContext>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -29,6 +35,7 @@ namespace Shop
             app.UseStaticFiles();
 
             app.UseRouting();
+                        app.UseAuthentication();;
 
             app.UseAuthorization();
 
