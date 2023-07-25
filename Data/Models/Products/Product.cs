@@ -13,7 +13,8 @@ namespace Shop.Data.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        [Required] public string Make { get; set; } = null!;
+        [Required] 
+        public string Make { get; set; } = null!;
         [Required]
         public string Model { get; set; } = null!;
 
@@ -34,9 +35,9 @@ namespace Shop.Data.Models
 
         public ICollection<ImageUrlProduct> ImageUrls { get; set; } = new HashSet<ImageUrlProduct>();
 
-        [Required]
+        
         [ForeignKey("Color")] 
-        public int ColorId { get; set; }
+        public int? ColorId { get; set; }
         public Color Color { get; set; } = null!;
         
         

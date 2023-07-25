@@ -6,7 +6,7 @@ namespace Shop.Data.Models
     public class ShoppingCart
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [ForeignKey("User")]

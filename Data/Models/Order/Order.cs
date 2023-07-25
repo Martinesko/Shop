@@ -20,13 +20,13 @@ namespace Shop.Data.Models
 
         [Required]
         [ForeignKey("OrderStatus")]
-        public int OrderStatusId { get; set; }
+        public Guid OrderStatusId { get; set; }
         public OrderStatus OrderStatus { get; set; } = null!;
         
 
         [Required]
         [ForeignKey("ShoppingCart")]
-        public int ShoppingCartId { get; set; }
+        public Guid ShoppingCartId { get; set; }
         public ShoppingCart ShoppingCart { get; set; } = null!;
         
 

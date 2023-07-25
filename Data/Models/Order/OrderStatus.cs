@@ -7,6 +7,7 @@ namespace Shop.Data.Models
         [Key]
         public Guid Id { get; set; }
 
-        [Required] public string Status { get; set; } = null!;
+        [Required]
+        public string Status { get; set; } = null!;
     }
 }
