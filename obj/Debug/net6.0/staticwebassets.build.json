@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6XDiNVmI14//gwhq0DzsScv7LugCcZunXiHk+qVl7u4=",
+  "Hash": "KQaL0kYvpmEfK2rNMTNO6yNsfBRA4eNsrsvFupywAiE=",
   "Source": "Shop",
   "BasePath": "_content/Shop",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\css\\homepage.css"
     },
     {
+      "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\login.css",
+      "SourceId": "Shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\",
+      "BasePath": "_content/Shop",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
       "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\site.css",
       "SourceId": "Shop",
       "SourceType": "Discovered",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\js\\login.js",
+      "SourceId": "Shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\",
+      "BasePath": "_content/Shop",
+      "RelativePath": "js/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\js\\site.js",

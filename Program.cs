@@ -17,8 +17,13 @@ namespace Shop
             builder.Services.AddDbContext<ShopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-                        builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+
+           
+
+            builder.Services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ShopDbContext>();
+
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -42,6 +47,7 @@ namespace Shop
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapRazorPages();
 
             app.Run();
         }

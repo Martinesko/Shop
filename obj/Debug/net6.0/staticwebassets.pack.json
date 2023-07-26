@@ -13,12 +13,20 @@
       "PackagePath": "staticwebassets\\css\\homepage.css"
     },
     {
+      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\js\\site.js",

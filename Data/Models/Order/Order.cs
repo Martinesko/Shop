@@ -9,9 +9,9 @@ namespace Shop.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        [ForeignKey("User")] 
+        [ForeignKey("CustomUser")] 
         public Guid UserId { get; set; }
-        public User User { get; set; } = null!;
+        public CustomUser CustomUser { get; set; } = null!;
         
         [Required]
         public DateTime OrderDate { get; set; }

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Shop.Data.Models
 {
-    public class User : IdentityUser<Guid>
+    public class CustomUser : IdentityUser<Guid>
     {
-        public User()
+        public CustomUser()
         {
             this.Id = Guid.NewGuid();
         }

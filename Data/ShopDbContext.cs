@@ -7,7 +7,7 @@ using Shop.Data.Models;
 
 namespace Shop.Data
 {
-    public class ShopDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
+    public class ShopDbContext : IdentityDbContext<CustomUser, IdentityRole<Guid>, Guid>
     {
         public ShopDbContext(DbContextOptions<ShopDbContext> options) : base(options)
         {
@@ -34,7 +34,7 @@ namespace Shop.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<User>(x => x.Property(x => x.AddressId).IsRequired(false));
+            builder.Entity<CustomUser>(x => x.Property(x => x.AddressId).IsRequired(false));
 
             builder.Entity<Product>(x => x.Property(x => x.ColorId).IsRequired(false));
 
