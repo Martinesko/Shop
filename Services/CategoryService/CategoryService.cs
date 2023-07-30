@@ -1,5 +1,7 @@
-﻿using Shop.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Data;
 using Shop.Data.Models;
+using Shop.Models.Category;
 using Shop.Services.CategoryService.Contracts;
 
 namespace Shop.Services.CategoryService
@@ -12,9 +14,22 @@ namespace Shop.Services.CategoryService
             this.dbContext = _dbContext;
         }
 
-        public async Task<IEnumerable<Product>> AllCategoriesAsync()
+        public async Task<IEnumerable<ProductCategoryViewModel>> AllCategoriesAsync()
         {
-            IEnumerable<>
+            IEnumerable<ProductCategoryViewModel> productCategoryViewModels = 
+                await dbContext.Categories.AsNoTracking()
+                    .Select(x => new ProductCategoryViewModel()
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                }).ToListAsync();
+            return productCategoryViewModels;
+        }
+
+        public async Task<IEnumerable<string>> CategoryNamesAsync()
+        {
+            IEnumerable<string> categoryNames = await dbContext.Categories.AsNoTracking().Select(x => x.Name).ToListAsync();
+            return categoryNames;
         }
     }
 }
