@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Microsoft.AspNetCore.Identity;
 using Shop.Data.Models;
+using Shop.Services.CategoryService;
+using Shop.Services.CategoryService.Contracts;
 
 
 namespace Shop
@@ -17,12 +19,10 @@ namespace Shop
             builder.Services.AddDbContext<ShopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-
-           
-
             builder.Services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ShopDbContext>();
-
+            
+            builder.Services.AddScoped<ICategoryService,CategoryService>();
 
             builder.Services.AddControllersWithViews();
 
