@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Drawing;
 using System.Reflection;
 using Shop.Data.Models;
 
@@ -19,7 +18,7 @@ namespace Shop.Data
         public DbSet<Country> Countries { get; set; } = null!;
 
         //Product
-        public DbSet<Models.Color> Colors { get; set; } = null!;
+        public DbSet<Color> Colors { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<ImageUrl> ImgUrls { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
@@ -41,6 +40,33 @@ namespace Shop.Data
             builder.Entity<ImageUrlProduct>(x =>
                 x.HasKey(x => new { x.ProductId, x.ImageUrlId })
             );
+
+            builder
+                .Entity<Category>()
+                .HasData(new Category()
+                    {
+                        Id = 1,
+                        Name = "Pants"
+                    }, new Category()
+                    {
+                        Id = 2,
+                        Name = "T-shirt"
+                    }, new Category()
+                    {
+                        Id = 3,
+                        Name = "Underwear"
+                    }, new Category()
+                    {
+                        Id = 4,
+                        Name = "Jeans"
+                    }, new Category()
+                    {
+                        Id = 5,
+                        Name = "Trousers"
+                    }
+                );
+
+
 
             Assembly configAssembly = Assembly.GetAssembly(typeof(ShopDbContext)) ??
                                       Assembly.GetExecutingAssembly();
