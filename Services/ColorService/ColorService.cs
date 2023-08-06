@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Data;
+using Shop.Models.Category;
 using Shop.Services.ColorService.Contract;
 
 namespace Shop.Services.ColorService
@@ -12,9 +13,11 @@ namespace Shop.Services.ColorService
             this.dbContext = _dbContext;
         }
 
-        public async Task<IEnumerable<string>> GetColors()
+        public async Task<IEnumerable<ProductCategoryViewModel>> GetColorsAsync()
         {
-            IEnumerable<string> colors = dbContext.Colors.AsNoTracking().Select(x => x.Name).ToListAsync();
+            IEnumerable<ProductCategoryViewModel> colors = await dbContext.Colors.AsNoTracking().Select(x => new ProductCategoryViewModel(){Id=x.Id,Name=x.Name}).ToListAsync();
+
+            return colors;
         }
     }
 }

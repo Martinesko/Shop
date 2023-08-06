@@ -5,18 +5,6 @@
       "PackagePath": "staticwebassets\\Shop.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\details.css",
-      "PackagePath": "staticwebassets\\css\\details.css"
-    },
-    {
-      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\homepage.css",
-      "PackagePath": "staticwebassets\\css\\homepage.css"
-    },
-    {
-      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
-    },
-    {
       "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
