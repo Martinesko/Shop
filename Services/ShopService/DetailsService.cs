@@ -17,8 +17,7 @@ namespace Shop.Services.ShopService
 
         public async Task<ShopDetailsViewModel> GetProductAsync(int id)
         {
-             var product = dbContext.Products.FirstOrDefault(p => p.Id == id);
-             return new ShopDetailsViewModel()
+              return await dbContext.Products.Where(p => p.Id == id).Select(product => new ShopDetailsViewModel()
              {
                  Model = product.Model,
                  Make = product.Make.Name,
@@ -28,7 +27,7 @@ namespace Shop.Services.ShopService
                  Description = product.Description,
                  Color = product.Color.Name,
                  Price = product.Price,
-             };
+             }).FirstOrDefaultAsync();
         }
 
       

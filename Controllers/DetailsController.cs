@@ -13,10 +13,10 @@ namespace Shop.Controllers
             this.detailsService = detailsService;
         }
 
-         public IActionResult Details(int id)
+         public async Task<IActionResult> Details(int id)
          {
-             var product = detailsService.GetProductAsync(id);
-            return View();
+             var product = await detailsService.GetProductAsync(id);
+            return View(product);
         }
     }
 }
