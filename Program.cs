@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Identity;
 using Shop.Data.Models;
 using Shop.Services.CategoryService;
 using Shop.Services.CategoryService.Contracts;
+using Shop.Services.ProductService;
+using Shop.Services.ProductService.Contract;
+using Shop.Services.ShopService;
+using Shop.Services.ShopService.Contract;
 
 
 namespace Shop
@@ -23,6 +27,9 @@ namespace Shop
                 .AddEntityFrameworkStores<ShopDbContext>();
             
             builder.Services.AddScoped<ICategoryService,CategoryService>();
+            builder.Services.AddScoped<IProductService,ProductService>();
+            builder.Services.AddScoped<IShopService,ShopService>();
+            builder.Services.AddScoped<IDetailsService,DetailsService>();
 
             builder.Services.AddControllersWithViews();
 

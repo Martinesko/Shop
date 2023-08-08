@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Shop.Data.Models;
+using Shop.Data.Models.Products;
 
 namespace Shop.Data
 {
@@ -19,6 +20,7 @@ namespace Shop.Data
 
         //Product
         public DbSet<Color> Colors { get; set; } = null!;
+        public DbSet<Make> Makes { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<ImageUrl> ImgUrls { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
@@ -65,6 +67,63 @@ namespace Shop.Data
                         Name = "Trousers"
                     }
                 );
+             builder
+                .Entity<Make>()
+                .HasData(new Make()
+                    {
+                        Id = 1,
+                        Name = "Adidas"
+                    }, new Make()
+                    {
+                        Id = 2,
+                        Name = "Nike"
+                    }, new Make()
+                    {
+                        Id = 3,
+                        Name = "Puma"
+                    }, new Make()
+                    {
+                        Id = 4,
+                        Name = "Diesel"
+                    }, new Make()
+                    {
+                        Id = 5,
+                        Name = "Armani"
+                    }
+                );
+             builder
+                .Entity<ModelType>()
+                .HasData(new ModelType()
+                    {
+                        Id = 1,
+                        Name = "Slim"
+                    }, new ModelType()
+                    {
+                        Id = 2,
+                        Name = "Over sized"
+                    }, new ModelType()
+                    {
+                        Id = 3,
+                        Name = "Regular"
+                    }
+                );
+             builder
+                .Entity<Color>()
+                .HasData(new Color()
+                    {
+                        Id = 1,
+                        Name = "Red"
+                    }, new Color()
+                    {
+                        Id = 2,
+                        Name = "Black"
+                    }, new Color()
+                    {
+                        Id = 3,
+                        Name = "White"
+                    }
+                );
+            
 
 
 

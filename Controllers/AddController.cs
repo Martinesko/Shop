@@ -1,12 +1,39 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Controllers;
+using Shop.Models.Product;
+using Shop.Services.ProductService;
+using Shop.Services.ProductService.Contract;
 
-namespace Shop.Controllers
+namespace Shop
 {
     public class AddController : BaseController
     {
-        public IActionResult Add()
+        private readonly IProductService productService;
+
+        public AddController(IProductService productService)
         {
-            return View();
+            this.productService = productService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            AddProductViewModel model = await productService.GetAddedProduct();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddProductViewModel model)
+        {
+            if (ModelState.IsValid != false)
+            {
+                return View(model);
+            }
+            await productService.AddProductAsync(model);
+            return RedirectToAction("Index");
         }
     }
 }
+
+ 

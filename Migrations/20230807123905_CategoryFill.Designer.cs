@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
@@ -11,9 +12,10 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230807123905_CategoryFill")]
+    partial class CategoryFill
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,23 +253,6 @@ namespace Shop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Red"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Black"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "White"
-                        });
                 });
 
             modelBuilder.Entity("Shop.Data.Models.Country", b =>
@@ -405,23 +390,6 @@ namespace Shop.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ModelTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Slim"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Over sized"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Regular"
-                        });
                 });
 
             modelBuilder.Entity("Shop.Data.Models.Order", b =>
@@ -488,10 +456,12 @@ namespace Shop.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MakeId")
-                        .HasColumnType("int");
+                    b.Property<string>("Make")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -512,55 +482,9 @@ namespace Shop.Migrations
 
                     b.HasIndex("ColorId");
 
-                    b.HasIndex("MakeId");
-
                     b.HasIndex("ModelTypeId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.Products.Make", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Makes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Adidas"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Nike"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Puma"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Diesel"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Armani"
-                        });
                 });
 
             modelBuilder.Entity("Shop.Data.Models.ShoppingCart", b =>
@@ -740,12 +664,6 @@ namespace Shop.Migrations
                         .WithMany()
                         .HasForeignKey("ColorId");
 
-                    b.HasOne("Shop.Data.Models.Products.Make", "Make")
-                        .WithMany()
-                        .HasForeignKey("MakeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Shop.Data.Models.ModelType", "ModelType")
                         .WithMany()
                         .HasForeignKey("ModelTypeId")
@@ -755,8 +673,6 @@ namespace Shop.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Color");
-
-                    b.Navigation("Make");
 
                     b.Navigation("ModelType");
                 });

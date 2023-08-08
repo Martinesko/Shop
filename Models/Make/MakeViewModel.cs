@@ -1,4 +1,4 @@
-﻿namespace Shop.Models.Model
+﻿namespace Shop.Models.Make
 {
     public class MakeViewModel
     {

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.Data;
 
@@ -11,9 +12,10 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230807223731_FillDatabase")]
+    partial class FillDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -488,10 +490,12 @@ namespace Shop.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MakeId")
-                        .HasColumnType("int");
+                    b.Property<string>("Make")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -511,8 +515,6 @@ namespace Shop.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("ColorId");
-
-                    b.HasIndex("MakeId");
 
                     b.HasIndex("ModelTypeId");
 
@@ -740,12 +742,6 @@ namespace Shop.Migrations
                         .WithMany()
                         .HasForeignKey("ColorId");
 
-                    b.HasOne("Shop.Data.Models.Products.Make", "Make")
-                        .WithMany()
-                        .HasForeignKey("MakeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Shop.Data.Models.ModelType", "ModelType")
                         .WithMany()
                         .HasForeignKey("ModelTypeId")
@@ -755,8 +751,6 @@ namespace Shop.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Color");
-
-                    b.Navigation("Make");
 
                     b.Navigation("ModelType");
                 });

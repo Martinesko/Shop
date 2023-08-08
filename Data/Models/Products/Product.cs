@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Shop.Data.Models.Products;
 
 namespace Shop.Data.Models
 {
@@ -13,10 +14,13 @@ namespace Shop.Data.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        [Required] 
-        public string Make { get; set; } = null!;
         [Required]
-        public string Model { get; set; } = null!;
+        [ForeignKey("Make")]
+        public int MakeId { get; set; }
+        public Make Make { get; set; } = null!;
+
+        [Required] 
+        public string Model { get; set; } = null!; 
 
         [Required]
         [ForeignKey("ModelType")] 
@@ -26,12 +30,12 @@ namespace Shop.Data.Models
         [Required]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; } = null;
+        public Category Category { get; set; } = null!;
 
         [Required]
         public int Quantity { get; set; }
-        [Required]
-        public string Description { get; set; } = null!;
+       
+        public string? Description { get; set; }
 
         public ICollection<ImageUrlProduct> ImageUrls { get; set; } = new HashSet<ImageUrlProduct>();
 

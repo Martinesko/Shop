@@ -2,13 +2,15 @@
 using Shop.Data.Models;
 using Shop.Models.Category;
 using Shop.Models.Color;
-using Shop.Models.Model;
+using Shop.Models.Make;
 using Shop.Models.ModelType;
 
 namespace Shop.Models.Product
 {
     public class AddProductViewModel
     {
+        public string Model { get; set; }
+
         public int MakeId { get; set; }
 
         public int ModelTypeId { get; set; }
@@ -17,7 +19,7 @@ namespace Shop.Models.Product
 
         public int Quantity { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         public string ImageUrl { get; set; }
 
