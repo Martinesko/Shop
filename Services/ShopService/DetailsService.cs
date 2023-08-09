@@ -27,6 +27,7 @@ namespace Shop.Services.ShopService
                  Description = product.Description,
                  Color = product.Color.Name,
                  Price = product.Price,
+                 Size = product.Size.Name
              }).FirstOrDefaultAsync();
         }
 

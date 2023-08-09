@@ -6,6 +6,7 @@ using Shop.Models.Color;
 using Shop.Models.Make;
 using Shop.Models.ModelType;
 using Shop.Models.Product;
+using Shop.Models.Size;
 using Shop.Services.ProductService.Contract;
 
 namespace Shop.Services.ProductService
@@ -41,6 +42,11 @@ namespace Shop.Services.ProductService
             {
                 Id = m.Id,
                 Name = m.Name,
+            }).ToListAsync(); 
+             var size = await dbContext.Sizes.Select(s=> new ProductSizeViewModel()
+            {
+                Id = s.Id,
+                Name = s.Name,
             }).ToListAsync();
             
 
@@ -50,7 +56,8 @@ namespace Shop.Services.ProductService
                 Categories = categories,
                 Makes = makes,
                 Colors = colors,
-                ModelTypes = modelTypes
+                ModelTypes = modelTypes,
+                Sizes = size
             };
 
         }
@@ -65,7 +72,8 @@ namespace Shop.Services.ProductService
                 Quantity = model.Quantity,
                 CategoryId = model.CategoryId,
                 Description = model.Description,
-                Model = model.Model
+                Model = model.Model,
+                SizeId = model.SizeId,
             };
             await dbContext.Products.AddAsync(product);
             await dbContext.SaveChangesAsync();

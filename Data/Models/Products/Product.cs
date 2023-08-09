@@ -33,6 +33,11 @@ namespace Shop.Data.Models
         public Category Category { get; set; } = null!;
 
         [Required]
+        [ForeignKey("Size")]
+        public int SizeId { get; set; }
+        public Size Size { get; set; }
+
+        [Required]
         public int Quantity { get; set; }
        
         public string? Description { get; set; }

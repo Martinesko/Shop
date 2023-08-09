@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/5P1z6RinYA2K5ApaAzKeGZr2Jh00HJUltEO80eI/9k=",
+  "Hash": "MTaOqTGG/KstAkdoZJtNM0TDqEDbjdvuAiYr9bx4IqE=",
   "Source": "Shop",
   "BasePath": "_content/Shop",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Shop.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\cart.css",
+      "SourceId": "Shop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\",
+      "BasePath": "_content/Shop",
+      "RelativePath": "css/cart.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\cart.css"
     },
     {
       "Identity": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\site.css",

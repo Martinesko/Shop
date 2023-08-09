@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Shop.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\cart.css",
+      "PackagePath": "staticwebassets\\css\\cart.css"
+    },
+    {
       "Id": "C:\\Users\\meane\\Programing\\ASP.NET Advanced\\AnevAuto\\AnevAuto\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

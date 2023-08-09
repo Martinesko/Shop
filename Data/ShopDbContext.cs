@@ -26,6 +26,7 @@ namespace Shop.Data
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<ImageUrlProduct> ProductsImgUrls { get; set; } = null!;
         public DbSet<ModelType> ModelTypes { get; set; } = null!;
+        public DbSet<Size> Sizes { get; set; } = null!;
 
         //Order
         public DbSet<Order> Orders { get; set; }
@@ -121,6 +122,39 @@ namespace Shop.Data
                     {
                         Id = 3,
                         Name = "White"
+                    }
+                );
+            
+             builder
+                .Entity<Size>()
+                .HasData(new Size()
+                    {
+                        Id = 1,
+                        Name = "XS"
+                    }, new Size()
+                    {
+                        Id = 2,
+                        Name = "S"
+                    }, new Size()
+                    {
+                        Id = 3,
+                        Name = "M"
+                    }, new Size()
+                    {
+                        Id = 4,
+                        Name = "L"
+                    }, new Size()
+                    {
+                        Id = 5,
+                        Name = "XL"
+                    }, new Size()
+                    {
+                        Id = 6,
+                        Name = "XXL"
+                    }, new Size()
+                    {
+                        Id = 7,
+                        Name = "One Size Fit All"
                     }
                 );
             

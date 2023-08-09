@@ -25,6 +25,16 @@
                     }
                 </select>
                 <span asp-validation-for="@Model.ModelTypeId" class="text-danger"></span>
+            </div> 
+            <div class="mb-3">
+                <label asp-for="@Model.SizeId" class="form-label-add-edit">Size</label>
+                <select asp-for="@Model.SizeId" class="form-control" aria-required="true">
+                    @foreach (var type in Model.Sizes)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.SizeId" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.MakeId" class="form-label-add-edit">Make</label>
@@ -35,6 +45,11 @@
                     }
                 </select>
                 <span asp-validation-for="@Model.MakeId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Model" class="form-label">Model</label>
+                <input asp-for="@Model.Model" class="form-control" aria-required="true" />
+                <span asp-validation-for="Model" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.CategoryId" class="form-label-add-edit">Category</label>
