@@ -1,7 +1,9 @@
-﻿namespace Shop.Services.ShoppingCartService.Contract
+﻿using Shop.Models.ShoppingCart;
+
+namespace Shop.Services.ShoppingCartService.Contract
 {
     public interface IShoppingCartService
     {
-        public IEnumerable<ShoppingCartViewModel>
+        Task<IEnumerable<ShoppingCartProductsViewModel>> GetUserShoppingCartPorductsAsync(Guid userId);
     }
 }

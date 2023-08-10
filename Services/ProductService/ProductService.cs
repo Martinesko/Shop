@@ -78,5 +78,26 @@ namespace Shop.Services.ProductService
             await dbContext.Products.AddAsync(product);
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task AddToCartAsync(Guid userId,int productId)
+        {
+            var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
+            if (shoppingCart == null)
+            {
+                shoppingCart = new ShoppingCart()
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = userId,
+                    ShoppingCartItems = new List<ShoppingCartItem>()
+                };
+            }
+            var shoppingcartItem = new ShoppingCartItem()
+            {
+                ShoppingCartId = shoppingCart.Id,
+                ProductId = productId
+            };
+            await dbContext.ShoppingCartItems.AddAsync(shoppingcartItem);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }

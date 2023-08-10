@@ -1,18 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Controllers;
 using Shop.Models.Product;
-using Shop.Services.ProductService;
 using Shop.Services.ProductService.Contract;
 
-namespace Shop
+namespace Shop.Areas.Admin.Controllers
 {
-    public class AddController : BaseController
-    {
+    public class AdminController : BaseController
+    { 
         private readonly IProductService productService;
-
-        public AddController(IProductService productService)
+        public AdminController(IProductService productService)
         {
             this.productService = productService;
+        }
+
+
+        public IActionResult Admin()
+        {
+            return View();
         }
 
         [HttpGet]
@@ -31,9 +35,7 @@ namespace Shop
                 return RedirectToAction("Add");
             }
             await productService.AddProductAsync(model);
-            return RedirectToAction("Index");
+            return RedirectToAction("Admin","Admin");
         }
     }
 }
-
- 

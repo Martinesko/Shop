@@ -1,15 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Services.ShoppingCartService.Contract;
 using Shop.Services.ShopService;
+using Shop.Services.ShopService.Contract;
 
 namespace Shop.Controllers
 {
     public class ShoppingCartController : BaseController
     {
-        
-        public IActionResult Cart()
-        {
+        private readonly IShoppingCartService shoppingCartService;
 
-            return View();
+        public ShoppingCartController(IShoppingCartService shoppingCartService)
+        {
+            this.shoppingCartService = shoppingCartService;
+        }
+
+        public IActionResult Cart()
+        { 
+            var products = shoppingCartService
+                .GetUserShoppingCartPorductsAsync(Guid.Parse(GetUserId())).Result;
+            var total = products.Sum(p => p.Price);
+            
+            ViewBag.Total = $"{total:f2}";
+
+
+            return View(products);
         }
     }
 }

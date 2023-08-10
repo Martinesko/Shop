@@ -1,6 +1,9 @@
 ﻿namespace Shop.Models.ShoppingCart
 {
-    public class ShoppingCartViewModel
+    public class ShoppingCartProductsViewModel
     {
+        public int Id { get; set; }
+        public string Model { get; set; }
+        public decimal Price { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,19 +23,20 @@
         </thead>
         <tbody>
         <!-- Example cart item -->
-        <tr>
-            <td>Product Name 1</td>
-            <td>$10.00</td>
-            <td><input type="number" value="1" min="1"></td>
-            <td>$10.00</td>
-            <td><button>Remove</button></td>
+        @foreach (var product in Model)
+        {
+            <tr>
+            <td>@product.Model</td>
+            <td>@product.Price</td>
+                <td><button>Remove</button></td>
         </tr>
+        }
         <!-- Repeat rows like the above for each item in the cart -->
         </tbody>
     </table>
     <div class="cart-total">
-        <strong>Total:</strong> $10.00
-    </div>
+            <strong>Total:@ViewBag.Total</strong>
+        </div>
     <div class="checkout-button">
         <button>Checkout</button>
     </div>

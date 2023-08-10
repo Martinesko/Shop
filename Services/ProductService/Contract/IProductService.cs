@@ -7,5 +7,6 @@ namespace Shop.Services.ProductService.Contract
     {
         public Task<AddProductViewModel> GetAddedProduct();
         public Task AddProductAsync(AddProductViewModel model);
+        public Task AddToCartAsync(Guid userId, int productId);
     }
 }
