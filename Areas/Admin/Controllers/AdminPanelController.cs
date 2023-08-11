@@ -6,18 +6,18 @@ using Shop.Services.UsersService.Contract;
 
 namespace Shop.Areas.Admin.Controllers
 {
-    public class AdminController : BaseController
+    public class AdminPanelController : BaseController
     { 
         private readonly IProductService productService;
         private readonly IUsersService usersService;
-        public AdminController(IProductService productService, IUsersService usersService)
+        public AdminPanelController(IProductService productService, IUsersService usersService)
         {
             this.productService = productService;
             this.usersService = usersService;
         }
 
 
-        public IActionResult Admin()
+        public IActionResult DashBoard()
         {
             return View();
         }
@@ -26,15 +26,21 @@ namespace Shop.Areas.Admin.Controllers
             var users = usersService.GetAllUsersAsync();
             return View(users.Result);
         }
-
-        [HttpPost]
+        
         public async Task<IActionResult> RemoveUser(string deleteButton)
         {
             var UserId = Guid.Parse(deleteButton);
             await usersService.RemoveUserAsync(UserId);
-            return RedirectToAction("Admin", "Admin");
+            return RedirectToAction("Users", "AdminPanel");
         }
-        
+
+        public async Task<IActionResult> GrantAdmin(string userId)
+        {
+            Guid Id = Guid.Parse(userId);
+            await usersService.GrandAdminUserAsync(Id);
+            return RedirectToAction("Users", "AdminPanel");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -51,7 +57,7 @@ namespace Shop.Areas.Admin.Controllers
                 return RedirectToAction("Add");
             }
             await productService.AddProductAsync(model);
-            return RedirectToAction("Admin","Admin");
+            return RedirectToAction("DashBoard", "AdminPanel");
         }
         
     }

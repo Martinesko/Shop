@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Shop.Models.Shop;
@@ -40,6 +41,26 @@ namespace Shop.Services.UsersService
         public async Task RemoveUserAsync(Guid userId)
         {
             dbContext.Users.Remove(dbContext.Users.FirstOrDefault(u => u.Id == userId));
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task GrandAdminUserAsync(Guid userId)
+        {
+            var user = dbContext.Users.First(u => u.Id == userId);
+
+            var adminId =  dbContext.Roles.FirstOrDefault(r => r.Name == "Admin").Id;
+
+            var newRole = new IdentityUserRole<Guid>()
+            {
+                UserId = user.Id,
+                RoleId = adminId
+            };
+
+            var oldRole = dbContext.UserRoles.FirstOrDefault(ur=>ur.UserId==userId);
+            dbContext.UserRoles.Remove(oldRole);
+            await dbContext.UserRoles.AddAsync(newRole);
+            await dbContext.SaveChangesAsync();
+
             await dbContext.SaveChangesAsync();
         }
     }

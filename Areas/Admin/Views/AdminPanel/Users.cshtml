@@ -29,15 +29,13 @@
         @foreach (var user in Model)
         {
             <tr>
-                        <form method="post" asp-controller="Admin" asp-action="RemoveUser">
                 <td>@user.UserName</td>
                 <td>@user.UserEmail</td>
                 <td>@user.Role</td>
-                    <td>
-                        <button class="grant" value="@user.UserId">Grant Admin</button>
-                        <input name="deleteButton" class="delete" value="@user.UserId" title="Delete" type="submit">
-                    </td>
-               </form>
+                <td>
+                    <button class="grant" href="https://localhost:7105/admin/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</button>
+                    <button class="delete" href="https://localhost:7105/admin/adminpanel/removeuser?deleteButton=@user.UserId">Delete</button>
+                </td>
             </tr>
         }
         

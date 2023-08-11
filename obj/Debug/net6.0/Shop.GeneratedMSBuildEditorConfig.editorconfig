@@ -16,16 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\meane\Programing\ASP.NET Advanced\AnevAuto\AnevAuto
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/Admin/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkLmNzaHRtbA==
+[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/AdminPanel/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYW5lbFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/Admin/Admin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRtaW4uY3NodG1s
+[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/AdminPanel/DashBoard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYW5lbFxEYXNoQm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/Admin/Users.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
+[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/AdminPanel/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5QYW5lbFxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]

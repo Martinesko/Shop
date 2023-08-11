@@ -8,5 +8,6 @@ namespace Shop.Services.UsersService.Contract
     {
         public Task<IEnumerable<UsersViewModel>> GetAllUsersAsync();
         public Task RemoveUserAsync(Guid userId);
+        public Task GrandAdminUserAsync(Guid userId);
     }
 }
