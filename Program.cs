@@ -10,6 +10,8 @@ using Shop.Services.ShoppingCartService;
 using Shop.Services.ShoppingCartService.Contract;
 using Shop.Services.ShopService;
 using Shop.Services.ShopService.Contract;
+using Shop.Services.UsersService;
+using Shop.Services.UsersService.Contract;
 
 
 namespace Shop
@@ -33,6 +35,7 @@ namespace Shop
             builder.Services.AddScoped<IShopService,ShopService>();
             builder.Services.AddScoped<IDetailsService,DetailsService>();
             builder.Services.AddScoped<IShoppingCartService,ShoppingCartService>();
+            builder.Services.AddScoped<IUsersService, UsersService>();
 
             builder.Services.AddControllersWithViews();
 

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Manage Users</title>
+    <link rel="stylesheet" href="admin_users.css">
+</head>
+
+<body>
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+<main>
+    <h2>All Users</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Example User Row -->
+        @foreach (var user in Model)
+        {
+            <tr>
+                        <form method="post" asp-controller="Admin" asp-action="RemoveUser">
+                <td>@user.UserName</td>
+                <td>@user.UserEmail</td>
+                <td>@user.Role</td>
+                    <td>
+                        <button class="grant" value="@user.UserId">Grant Admin</button>
+                        <input name="deleteButton" class="delete" value="@user.UserId" title="Delete" type="submit">
+                    </td>
+               </form>
+            </tr>
+        }
+        
+        <!-- You can replicate the above row for each user in your system -->
+        </tbody>
+    </table>
+</main>
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    main {
+        width: 95%;
+        margin: 2rem auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    button.grant, button.delete {
+        text-align: center;
+        padding: 5px 15px;
+        margin: 0 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button.grant {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    button.delete {
+        background-color: #ff3333;
+        color: #fff;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+</style>

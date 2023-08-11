@@ -2,15 +2,18 @@
 using Shop.Controllers;
 using Shop.Models.Product;
 using Shop.Services.ProductService.Contract;
+using Shop.Services.UsersService.Contract;
 
 namespace Shop.Areas.Admin.Controllers
 {
     public class AdminController : BaseController
     { 
         private readonly IProductService productService;
-        public AdminController(IProductService productService)
+        private readonly IUsersService usersService;
+        public AdminController(IProductService productService, IUsersService usersService)
         {
             this.productService = productService;
+            this.usersService = usersService;
         }
 
 
@@ -18,7 +21,20 @@ namespace Shop.Areas.Admin.Controllers
         {
             return View();
         }
+        public IActionResult Users()
+        {
+            var users = usersService.GetAllUsersAsync();
+            return View(users.Result);
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> RemoveUser(string deleteButton)
+        {
+            var UserId = Guid.Parse(deleteButton);
+            await usersService.RemoveUserAsync(UserId);
+            return RedirectToAction("Admin", "Admin");
+        }
+        
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -37,5 +53,6 @@ namespace Shop.Areas.Admin.Controllers
             await productService.AddProductAsync(model);
             return RedirectToAction("Admin","Admin");
         }
+        
     }
 }
