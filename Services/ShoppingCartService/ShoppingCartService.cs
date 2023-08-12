@@ -41,8 +41,16 @@ namespace Shop.Services.ShoppingCartService
                     Size = p.Product.Size.Name,
                     Price = p.Product.Price
                 }).ToListAsync();
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
             return products;
         }
+
+        //public async Task RemoveShoppingCartProductAsync(int productId)
+        //{ 
+        //    var item = await dbContext.ShoppingCartItems.FirstOrDefaultAsync(sci => sci.ProductId == productId);
+
+        //    dbContext.ShoppingCartItems.Remove(item);
+        //    await dbContext.SaveChangesAsync();
+        //}
     }
 }

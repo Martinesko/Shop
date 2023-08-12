@@ -1,4 +1,5 @@
-﻿@model Shop.Models.Order.OrderViewModel
+﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model Shop.Models.Order.OrderViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +70,7 @@
         <section class="payment-details">
             <h3>Payment Details</h3>
             <label>
-                Shipping - $7.00
+                Cash on Delivery - $3.00
             </label>
         </section>
 
@@ -87,11 +88,14 @@
                         <span class="product-price">Price: $@product.Price</span>
                     </div>
                 }
-                
+                <div class="product">
+                    <span class="product-name">Services</span>
+                    <span class="product-name">$10.00</span>
+                </div>
                 <!-- Add more products as required -->
             </div>
             <div class="total-price">
-                <span>Total: $40.00</span>
+                <span>Total: $@ViewBag.Total</span>
             </div>
         </section>
 

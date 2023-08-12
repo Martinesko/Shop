@@ -13,6 +13,6 @@ namespace Shop.Data.Models
         public Guid UserId { get; set; }
         public CustomUser CustomUser { get; set; } = null!;
 
-        public IEnumerable<ShoppingCartItem> ShoppingCartItems { get; set; } = new HashSet<ShoppingCartItem>();
+        public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; } = new HashSet<ShoppingCartItem>();
     }
 }

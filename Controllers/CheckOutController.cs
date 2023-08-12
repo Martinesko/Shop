@@ -23,7 +23,9 @@ namespace Shop.Controllers
 
             var Id = Guid.Parse(GetUserId());
             var model = await orderService.GetOrderAdressAsync(Id);
-            var model2 = shoppingCartService.GetUserShoppingCartPorductsAsync(Id);
+            var total = model.Products.Sum(p=>p.Price)+10;
+
+            ViewBag.Total = $"{total:f2}";
 
             return View(model);
         }

@@ -25,5 +25,14 @@ namespace Shop.Controllers
 
             return View(products);
         }
+        
+        //public IActionResult Remove(string productId)
+        //{
+        //    var UserId = Guid.Parse(GetUserId());
+        //    shoppingCartService.RemoveShoppingCartProductAsync(int.Parse(productId),UserId);
+
+        //    return RedirectToAction("Cart","ShoppingCart");
+        //}
+        
     }
 }
