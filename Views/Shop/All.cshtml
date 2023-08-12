@@ -6,11 +6,14 @@
 <hr />
 
 <div class="text-center row">
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
     @foreach (var product in Model)
     {
-        <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        
+       
+        
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
@@ -30,9 +33,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-        </section>
+        
+        
+        
        @* <div class="card col-4" style="width: 20rem; ">
             @*<img class="card-img-top" style="width: 18rem;"
                  src="@book.ImageUrl" alt="Book Image">
@@ -46,5 +49,8 @@
 
             <a asp-controller="Details" asp-action="Details" asp-route-id="@product.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
         </div>*@
-    }
+            }
+            </div>
+        </div>
+    </section>
 </div>

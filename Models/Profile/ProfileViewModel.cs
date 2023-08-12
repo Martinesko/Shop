@@ -7,6 +7,6 @@ namespace Shop.Models.Profile
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public Address City { get; set; }
+        public Data.Models.Address City { get; set; }
     }
 }

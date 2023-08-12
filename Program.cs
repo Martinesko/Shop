@@ -1,9 +1,12 @@
+using System.Collections.Specialized;
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Microsoft.AspNetCore.Identity;
 using Shop.Data.Models;
 using Shop.Services.CategoryService;
 using Shop.Services.CategoryService.Contracts;
+using Shop.Services.OrderService;
+using Shop.Services.OrderService.Contract;
 using Shop.Services.ProductService;
 using Shop.Services.ProductService.Contract;
 using Shop.Services.ShoppingCartService;
@@ -36,6 +39,7 @@ namespace Shop
             builder.Services.AddScoped<IDetailsService,DetailsService>();
             builder.Services.AddScoped<IShoppingCartService,ShoppingCartService>();
             builder.Services.AddScoped<IUsersService, UsersService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
 
             builder.Services.AddControllersWithViews();
 
@@ -67,6 +71,7 @@ namespace Shop
                 config.MapControllerRoute(
                     name: "ProtectingUrlRoute",
                     pattern: "/{controller}/{action}/{id}/{information}",
+                    
                     defaults: new { Controller = "Home", Action = "Index" });
 
                 config.MapDefaultControllerRoute();

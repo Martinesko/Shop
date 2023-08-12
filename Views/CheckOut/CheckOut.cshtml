@@ -1,0 +1,196 @@
+﻿@model Shop.Models.Order.OrderViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a styles.css for styling -->
+</head>
+
+<body>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+
+        <!-- Shipping Information -->
+        <section class="shipping-information">
+            <h3>Shipping Information</h3>
+            <form action="/submit-shipping" method="post">
+                <div class="mb-3">
+                    <label asp-for="@Model.City" class="form-label">City</label>
+                    <input asp-for="@Model.City" class="form-control" aria-required="true" />
+                    <span asp-validation-for="@Model.City" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.Street1" class="form-label">Street 1</label>
+                    <input asp-for="@Model.Street1" class="form-control" aria-required="true" />
+                    <span asp-validation-for="@Model.Street1" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.Street2" class="form-label">Street 2</label>
+                    <input asp-for="@Model.Street2" class="form-control" aria-required="true" />
+                    <span asp-validation-for="@Model.Street2" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.StreetNumber" class="form-label">Street Number</label>
+                    <input asp-for="@Model.StreetNumber" class="form-control" aria-required="true" />
+                    <span asp-validation-for="@Model.StreetNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.PostCode" class="form-label">Post Code</label>
+                    <input asp-for="@Model.PostCode" class="form-control" aria-required="true" />
+                    <span asp-validation-for="@Model.PostCode" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.SelectedCountryId" class="form-label-add-edit">Country</label>
+                    <select asp-for="@Model.SelectedCountryId" class="form-control" aria-required="true">
+                        @foreach (var type in Model.Countries)
+                        {
+                            <option value="@type.Id">@type.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.SelectedCountryId" class="text-danger"></span>
+                </div> 
+            </form>
+        </section>
+
+        <!-- Shipping Method -->
+        <section class="shipping-method">
+            <label>
+                Shipping - $7.00
+            </label>
+            
+        </section>
+
+        <!-- Payment Details -->
+        <section class="payment-details">
+            <h3>Payment Details</h3>
+            <label>
+                Shipping - $7.00
+            </label>
+        </section>
+
+        <!-- Order Review -->
+        <section class="order-review">
+            <h3>Review Your Order</h3>
+            <!-- List of products, their sizes, quantity, and prices -->
+            <div class="product-list">
+                <!-- Example product -->
+                @foreach (var product in Model.Products)
+                {
+                    <div class="product">
+                        <span class="product-name">Model: @product.Model</span>
+                        <span class="product-size">Size: @product.Size</span>
+                        <span class="product-price">Price: $@product.Price</span>
+                    </div>
+                }
+                
+                <!-- Add more products as required -->
+            </div>
+            <div class="total-price">
+                <span>Total: $40.00</span>
+            </div>
+        </section>
+
+        <!-- Place Order Button -->
+        <div class="place-order">
+            <button type="submit">Place Order</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .checkout-container {
+        width: 80%;
+        max-width: 1200px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        margin: 0 0 15px;
+        padding: 0;
+        color: #333;
+    }
+
+    h3 {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    form {
+        margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .product-list {
+        margin-bottom: 20px;
+    }
+
+    .product {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+
+    .total-price {
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .place-order {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 15px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>

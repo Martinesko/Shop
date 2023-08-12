@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
-<div class="shopping-cart">
-    <h1>Shopping Cart</h1>
-    <table>
+    <div class="shopping-cart">
+        <h1 >Shopping Cart</h1>
+        <table >
         <thead>
         <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+                    <th >Product</th>
+                    <th >Price</th>
             <th></th> <!-- for remove button -->
         </tr>
         </thead>
@@ -26,9 +24,9 @@
         @foreach (var product in Model)
         {
             <tr>
-            <td>@product.Model</td>
-            <td>@product.Price</td>
-                <td><button>Remove</button></td>
+                        <td >@product.Model</td>
+                        <td >@product.Price</td>
+                        <td ><button>Remove</button></td>
         </tr>
         }
         <!-- Repeat rows like the above for each item in the cart -->
@@ -38,7 +36,7 @@
             <strong>Total:@ViewBag.Total</strong>
         </div>
     <div class="checkout-button">
-        <button>Checkout</button>
+            <a href="/CheckOut/CheckOut" class="btn btn-primary">Checkout</a>
     </div>
 </div>
 </body>

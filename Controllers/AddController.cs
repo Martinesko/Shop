@@ -8,12 +8,12 @@ namespace Shop
 {
     public class AddController : BaseController
     {
-        private readonly IProductService productService;
+            private readonly IProductService productService;
 
-        public AddController(IProductService productService)
-        {
-            this.productService = productService;
-        }
+            public AddController(IProductService productService)
+            {
+                this.productService = productService;
+            }
 
         [HttpGet]
         public async Task<IActionResult> Add()

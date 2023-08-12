@@ -79,9 +79,31 @@ namespace Shop.Services.ProductService
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task AddToCartAsync(Guid userId,int productId)
+        //public async Task AddToCartAsync(Guid userId,int productId)
+        //{
+        //    var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
+        //    if (shoppingCart == null)
+        //    {
+        //        shoppingCart = new ShoppingCart()
+        //        {
+        //            Id = Guid.NewGuid(),
+        //            UserId = userId,
+        //            ShoppingCartItems = new List<ShoppingCartItem>()
+        //        };
+        //    }
+        //    var shoppingcartItem = new ShoppingCartItem()
+        //    {
+        //        ShoppingCartId = shoppingCart.Id,
+        //        ProductId = productId
+        //    };
+        //    await dbContext.ShoppingCartItems.AddAsync(shoppingcartItem);
+        //    await dbContext.SaveChangesAsync();
+        //}
+        public async Task AddToShoppingCartAsync(Guid userId,int ProductId )
         {
-            var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
+            var product = dbContext.Products.FirstOrDefault(p => p.Id == ProductId);
+
+            var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(p => p.UserId == userId);
             if (shoppingCart == null)
             {
                 shoppingCart = new ShoppingCart()
@@ -90,13 +112,16 @@ namespace Shop.Services.ProductService
                     UserId = userId,
                     ShoppingCartItems = new List<ShoppingCartItem>()
                 };
+                await dbContext.ShoppingCarts.AddAsync(shoppingCart);
             }
-            var shoppingcartItem = new ShoppingCartItem()
+
+            var shoppingCartItem = new ShoppingCartItem()
             {
+                ProductId = ProductId,
                 ShoppingCartId = shoppingCart.Id,
-                ProductId = productId
             };
-            await dbContext.ShoppingCartItems.AddAsync(shoppingcartItem);
+
+            await dbContext.ShoppingCartItems.AddAsync(shoppingCartItem);
             await dbContext.SaveChangesAsync();
         }
     }

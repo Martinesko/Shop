@@ -1,98 +1,159 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Shop.Models.Product.AddProductViewModel
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 20%;
+            background-color: #333;
+            height: 100vh;
+            color: #fff;
+            padding: 10px;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #sidebar ul li {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        #sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form method="post" asp-controller="Admin" asp-action="Add">
-            <div class="mb-3">
-                <label asp-for="@Model.Model" class="form-label">Model</label>
-                <input asp-for="@Model.Model" class="form-control" aria-required="true" />
-                <span asp-validation-for="@Model.Model" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.ModelTypeId" class="form-label-add-edit">Model Type</label>
-                <select asp-for="@Model.ModelTypeId" class="form-control" aria-required="true">
-                    @foreach (var type in Model.ModelTypes)
-                    {
-                        <option value="@type.Id">@type.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="@Model.ModelTypeId" class="text-danger"></span>
-            </div> 
-            <div class="mb-3">
-                <label asp-for="@Model.SizeId" class="form-label-add-edit">Size</label>
-                <select asp-for="@Model.SizeId" class="form-control" aria-required="true">
-                    @foreach (var type in Model.Sizes)
-                    {
-                        <option value="@type.Id">@type.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="@Model.SizeId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.MakeId" class="form-label-add-edit">Make</label>
-                <select asp-for="@Model.MakeId" class="form-control" aria-required="true">
-                    @foreach (var type in Model.Makes)
-                    {
-                        <option value="@type.Id">@type.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="@Model.MakeId" class="text-danger"></span>
-            </div>
-           
-            <div class="mb-3">
-                <label asp-for="@Model.CategoryId" class="form-label-add-edit">Category</label>
-                <select asp-for="@Model.CategoryId" class="form-control" aria-required="true">
-                    @foreach (var type in Model.Categories)
-                    {
-                        <option value="@type.Id">@type.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.ColorId" class="form-label-add-edit">Color</label>
-                <select asp-for="@Model.ColorId" class="form-control" aria-required="true">
-                    @foreach (var type in Model.Colors)
-                    {
-                        <option value="@type.Id">@type.Name</option>
-                    }
-                </select>
-                <span asp-validation-for="@Model.ColorId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.ImageUrl" class="form-label">Image URL</label>
-                <input asp-for="@Model.ImageUrl" class="form-control" aria-required="true"/>
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.Price" class="form-label">Price</label>
-                <input asp-for="@Model.Price" class="form-control" aria-required="true"/>
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.Description" class="form-label">Description</label>
-                <input asp-for="@Model.Description" class="form-control" aria-required="true"/>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+<body>
+<div id="wrapper">
+    <div id="sidebar">
+            <h2>Admin Menu</h2>
+        <ul>
+                <li><a href="https://localhost:7105/admin/adminpanel/dashboard">DASHBOARD</a></li>
+            <li><a href="https://localhost:7105/admin/adminpanel/add">POST</a></li>
+            <li><a href="https://localhost:7105/admin/adminpanel/users">USERS</a></li>
+                <li><a href="https://localhost:7105/">GO BACK</a></li>
+        </ul>
+    </div>
 
-            <div class="mb-3">
-                <input class="btn btn-primary" type="submit"/>
-            </div>
+    <div id="content">
+        <h1>Add New Product</h1>
+        <form method="post" asp-controller="Admin" asp-action="Add">
+                <form method="post" asp-controller="Admin" asp-action="Add">
+                    <div class="mb-3">
+                        <label asp-for="@Model.Model" class="form-label">Model</label>
+                        <input asp-for="@Model.Model" class="form-control" aria-required="true" />
+                        <span asp-validation-for="@Model.Model" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.ModelTypeId" class="form-label-add-edit">Model Type</label>
+                        <select asp-for="@Model.ModelTypeId" class="form-control" aria-required="true">
+                            @foreach (var type in Model.ModelTypes)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="@Model.ModelTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.SizeId" class="form-label-add-edit">Size</label>
+                        <select asp-for="@Model.SizeId" class="form-control" aria-required="true">
+                            @foreach (var type in Model.Sizes)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="@Model.SizeId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.MakeId" class="form-label-add-edit">Make</label>
+                        <select asp-for="@Model.MakeId" class="form-control" aria-required="true">
+                            @foreach (var type in Model.Makes)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="@Model.MakeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.CategoryId" class="form-label-add-edit">Category</label>
+                        <select asp-for="@Model.CategoryId" class="form-control" aria-required="true">
+                            @foreach (var type in Model.Categories)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.ColorId" class="form-label-add-edit">Color</label>
+                        <select asp-for="@Model.ColorId" class="form-control" aria-required="true">
+                            @foreach (var type in Model.Colors)
+                            {
+                                <option value="@type.Id">@type.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="@Model.ColorId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.ImageUrl" class="form-label">Image URL</label>
+                        <input asp-for="@Model.ImageUrl" class="form-control" aria-required="true" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.Price" class="form-label">Price</label>
+                        <input asp-for="@Model.Price" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.Description" class="form-label">Description</label>
+                        <input asp-for="@Model.Description" class="form-control" aria-required="true" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <input class="btn btn-primary" type="submit" />
+                    </div>
+                </form>
         </form>
     </div>
 </div>
 
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+</body>
 
+</html>

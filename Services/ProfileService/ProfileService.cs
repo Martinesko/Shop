@@ -25,30 +25,5 @@ namespace Shop.Services.ProfileService
            };
         }
 
-        public async Task AddToShoppingCartAsync(int ProductId, Guid userId)
-        {
-            var product = dbContext.Products.FirstOrDefault(p => p.Id == ProductId);
-
-            var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(p => p.Id == userId);
-            if (shoppingCart == null)
-            {
-                shoppingCart = new ShoppingCart()
-                {
-                    Id = Guid.NewGuid(),
-                    UserId = userId,
-                    ShoppingCartItems = new List<ShoppingCartItem>()
-                };
-                await dbContext.ShoppingCarts.AddAsync(shoppingCart);
-            }
-
-            var shoppingCartItem = new ShoppingCartItem()
-            {
-                ProductId = ProductId,
-                ShoppingCartId = shoppingCart.Id,
-            };
-
-            await dbContext.ShoppingCartItems.AddAsync(shoppingCartItem);
-            await dbContext.SaveChangesAsync();
-        }
     }
 }

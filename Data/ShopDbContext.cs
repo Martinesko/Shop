@@ -30,7 +30,6 @@ namespace Shop.Data
 
         //Order
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderStatus> OrdersStatuses { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 

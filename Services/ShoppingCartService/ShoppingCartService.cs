@@ -38,6 +38,7 @@ namespace Shop.Services.ShoppingCartService
                 {
                     Id = p.ProductId,
                     Model = p.Product.Model,
+                    Size = p.Product.Size.Name,
                     Price = p.Product.Price
                 }).ToListAsync();
             dbContext.SaveChanges();

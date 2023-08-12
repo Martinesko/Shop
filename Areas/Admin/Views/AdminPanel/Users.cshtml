@@ -5,115 +5,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Manage Users</title>
-    <link rel="stylesheet" href="admin_users.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 20%;
+            background-color: #333;
+            height: 100vh;
+            color: #fff;
+            padding: 10px;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            #sidebar ul li {
+                padding: 10px;
+                border-bottom: 1px solid #444;
+            }
+
+                #sidebar ul li a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                    #sidebar ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+        /* User Management Table Styling */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a.grant, a.delete {
+            text-align: center;
+            padding: 5px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        a.grant {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        a.delete {
+            background-color: #ff3333;
+            color: #fff;
+        }
+
+        a:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 
 <body>
-<header>
-    <h1>Admin Dashboard</h1>
-</header>
+    <div id="wrapper">
+        <div id="sidebar">
+            <h2>Admin Menu</h2>
+            <ul>
+                <li><a href="https://localhost:7105/admin/adminpanel/dashboard">DASHBOARD</a></li>
+                <li><a href="https://localhost:7105/admin/adminpanel/add">POST</a></li>
+                <li><a href="https://localhost:7105/admin/adminpanel/users">USERS</a></li>
+                <li><a href="https://localhost:7105/">GO BACK</a></li>
+            </ul>
+        </div>
 
-<main>
-    <h2>All Users</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Example User Row -->
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.UserEmail</td>
-                <td>@user.Role</td>
-                <td>
-                    <button class="grant" href="https://localhost:7105/admin/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</button>
-                    <button class="delete" href="https://localhost:7105/admin/adminpanel/removeuser?deleteButton=@user.UserId">Delete</button>
-                </td>
-            </tr>
-        }
-        
-        <!-- You can replicate the above row for each user in your system -->
-        </tbody>
-    </table>
-</main>
+        <div id="content">
+            <h1>Admin Dashboard - Manage Users</h1>
+
+            <h2>All Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example User Row -->
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@user.UserEmail</td>
+                            <td>@user.Role</td>
+                            <td>
+                                <a class="grant" href="https://localhost:7105/admin/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</a>
+                                <a class="delete" href="https://localhost:7105/admin/adminpanel/removeuser?deleteButton=@user.UserId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-
-    header {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 1rem 0;
-    }
-
-    main {
-        width: 95%;
-        margin: 2rem auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: center;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    button.grant, button.delete {
-        text-align: center;
-        padding: 5px 15px;
-        margin: 0 5px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    button.grant {
-        background-color: #007bff;
-        color: #fff;
-    }
-
-    button.delete {
-        background-color: #ff3333;
-        color: #fff;
-    }
-
-    button:hover {
-        opacity: 0.9;
-    }
-</style>

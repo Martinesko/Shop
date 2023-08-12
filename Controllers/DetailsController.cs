@@ -10,7 +10,7 @@ namespace Shop.Controllers
         private readonly IDetailsService detailsService;
         private readonly IProductService productService;
 
-        public DetailsController(IDetailsService detailsService)
+        public DetailsController(IDetailsService detailsService,IProductService productService)
         {
             this.detailsService = detailsService; 
             this.productService = productService;
@@ -24,7 +24,7 @@ namespace Shop.Controllers
         }
          public async Task<IActionResult> Add(int productId)
          {
-             await productService.AddToCartAsync(Guid.Parse(GetUserId()), productId);
+             await productService.AddToShoppingCartAsync(Guid.Parse(GetUserId()), productId);
             return RedirectToAction("Cart","ShoppingCart");
         }
 
