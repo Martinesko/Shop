@@ -69,7 +69,6 @@ namespace Shop.Services.ProductService
                 ModelTypeId = model.ModelTypeId,
                 Price = model.Price,
                 ColorId = model.ColorId,
-                Quantity = model.Quantity,
                 CategoryId = model.CategoryId,
                 Description = model.Description,
                 Model = model.Model,
@@ -79,26 +78,6 @@ namespace Shop.Services.ProductService
             await dbContext.SaveChangesAsync();
         }
 
-        //public async Task AddToCartAsync(Guid userId,int productId)
-        //{
-        //    var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(s => s.UserId == userId);
-        //    if (shoppingCart == null)
-        //    {
-        //        shoppingCart = new ShoppingCart()
-        //        {
-        //            Id = Guid.NewGuid(),
-        //            UserId = userId,
-        //            ShoppingCartItems = new List<ShoppingCartItem>()
-        //        };
-        //    }
-        //    var shoppingcartItem = new ShoppingCartItem()
-        //    {
-        //        ShoppingCartId = shoppingCart.Id,
-        //        ProductId = productId
-        //    };
-        //    await dbContext.ShoppingCartItems.AddAsync(shoppingcartItem);
-        //    await dbContext.SaveChangesAsync();
-        //}
         public async Task AddToShoppingCartAsync(Guid userId,int ProductId )
         {
             var product = dbContext.Products.FirstOrDefault(p => p.Id == ProductId);
@@ -124,5 +103,58 @@ namespace Shop.Services.ProductService
             await dbContext.ShoppingCartItems.AddAsync(shoppingCartItem);
             await dbContext.SaveChangesAsync();
         }
+
+        public async Task<AddProductViewModel> EditProduct(int ProductId)
+        {
+            var product = await dbContext.Products.FirstOrDefaultAsync(p=>p.Id == ProductId);
+
+            var categories = await dbContext.Categories.Select(c => new ProductCategoryViewModel()
+            {
+                Id = c.Id,
+                Name = c.Name,
+            }).ToListAsync();
+
+            var makes = await dbContext.Makes.Select(m => new MakeViewModel()
+            {
+                Id = m.Id,
+                Name = m.Name,
+            }).ToListAsync();
+            var colors = await dbContext.Colors.Select(m => new ProductColorViewModel()
+            {
+                Id = m.Id,
+                Name = m.Name,
+            }).ToListAsync();
+            var modelTypes = await dbContext.ModelTypes.Select(m => new ModelTypeViewModel()
+            {
+                Id = m.Id,
+                Name = m.Name,
+            }).ToListAsync();
+            var sizes = await dbContext.Sizes.Select(s => new ProductSizeViewModel()
+            {
+                Id = s.Id,
+                Name = s.Name,
+            }).ToListAsync();
+
+           
+
+            return new AddProductViewModel()
+            {
+                Model = product.Model,
+                MakeId = product.MakeId,
+                CategoryId = product.CategoryId,
+                
+                ModelTypeId = product.ModelTypeId,
+                Description = product.Description,
+                SizeId = product.SizeId,
+                Price = product.Price,
+                Categories = categories,
+                Makes = makes,
+                Colors = colors,
+                ModelTypes = modelTypes,
+                Sizes = sizes
+            };
+        }
+
+      
     }
 }

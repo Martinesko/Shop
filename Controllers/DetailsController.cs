@@ -28,5 +28,10 @@ namespace Shop.Controllers
             return RedirectToAction("Cart","ShoppingCart");
         }
 
+         //public async Task<IActionResult> Edit(int productId)
+         //{
+
+         //}
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
 using Shop.Controllers;
 using Shop.Models.Product;
 using Shop.Services.ProductService.Contract;
@@ -26,6 +27,10 @@ namespace Shop.Areas.Admin.Controllers
             var users = usersService.GetAllUsersAsync();
             return View(users.Result);
         }
+        public IActionResult Orders()
+        {
+            return View();
+        }
         
         public async Task<IActionResult> RemoveUser(string deleteButton)
         {
@@ -52,13 +57,19 @@ namespace Shop.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddProductViewModel model)
         {
-            if (ModelState.IsValid == false)
-            {
-                return RedirectToAction("Add");
-            }
-            await productService.AddProductAsync(model);
+            //if (ModelState.IsValid == false)
+            //{
+            //    return RedirectToAction("Add");
+            //}
+             await productService.AddProductAsync(model);
             return RedirectToAction("DashBoard", "AdminPanel");
         }
-        
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int productId)
+        {
+            AddProductViewModel model = await productService.EditProduct(productId);
+            return View(model);
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace Shop.Services.ShoppingCartService
                 .Where(sci => sci.ShoppingCartId == Id)
                 .Select(p => new ShoppingCartProductsViewModel()
                 {
+                    ShoppingCartId = Id,
                     Id = p.ProductId,
                     Model = p.Product.Model,
                     Size = p.Product.Size.Name,

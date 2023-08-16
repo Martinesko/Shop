@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Models.Order;
 using Shop.Services.OrderService.Contract;
 using Shop.Services.ProductService.Contract;
 using Shop.Services.ShoppingCartService.Contract;
@@ -28,6 +29,17 @@ namespace Shop.Controllers
             ViewBag.Total = $"{total:f2}";
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CheckOutTask(InputOrderViewModel model)
+        {
+            if (ModelState.IsValid == false)
+            {
+               return RedirectToAction("CheckOut","CheckOut"); 
+            }
+            await orderService.MakeOrder(Guid.Parse(GetUserId()), model);
+                return RedirectToAction("Index","Home");
         }
     }
 }

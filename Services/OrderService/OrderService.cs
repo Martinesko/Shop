@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.Build.Framework;
+using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Shop.Data.Models;
 using Shop.Models.Category;
@@ -24,7 +27,7 @@ namespace Shop.Services.OrderService
             this.dbContext = dbContext;
         }
 
-        public async Task<OrderViewModel> GetOrderAdressAsync(Guid userId)
+        public async Task<InputOrderViewModel> GetOrderAdressAsync(Guid userId)
         {
             var countries = await dbContext.Countries.Select(c => new CountryViewModel()
             {
@@ -47,12 +50,37 @@ namespace Shop.Services.OrderService
                     Price = p.Product.Price
                 }).ToListAsync();
 
-            var address = new OrderViewModel()
+            var address = new InputOrderViewModel()
             {
+                ShoppingCartId = Id,
                 Countries = countries,
                 Products = products
             };
             return address;
+        }
+
+        public async Task MakeOrder(Guid Id,InputOrderViewModel model)
+        {
+            var shoppingCartId = dbContext.ShoppingCarts.FirstOrDefaultAsync(sc => sc.Id == Id).Result.Id;
+            var order = new Order()
+            {
+                Id = new Guid(),
+                UserId = Id,
+                OrderDate = DateTime.Now,
+                ShippingAddress = new Address()
+                {
+                    Id = new Guid(),
+                    City = model.City,
+                    CountryId = model.SelectedCountryId,
+                    PostCode = model.PostCode,
+                    Street1 = model.Street1,
+                    Street2 = model.Street2,
+                    StreetNumber = model.StreetNumber
+                },
+                ShoppingCartId = shoppingCartId,
+            };
+            dbContext.Orders.Add(order);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -26,6 +26,19 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Shop" asp-action="All">Shop</a>
                         </li>
                     </ul>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
+                    }
+
+                    @if (User.IsInRole("Admin")) 
+                    {
+                        <!-- Admin Button for Admins only -->
+                        
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Adminpanel" asp-action="Dashboard">Admin</a>
+                        
+                    }
                     <a class="btn btn-outline-dark flex-shrink-0" asp-area="" asp-controller="ShoppingCart" asp-action="Cart">🛒Cart</a>
                     <partial name="_LoginPartial" />
                 </div>

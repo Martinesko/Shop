@@ -1,5 +1,5 @@
 ﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
-@model Shop.Models.Order.OrderViewModel
+@model Shop.Models.Order.InputOrderViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
         <!-- Shipping Information -->
         <section class="shipping-information">
             <h3>Shipping Information</h3>
-            <form action="/submit-shipping" method="post">
+            <form method="post" asp-controller="CheckOut" asp-action="CheckOutTask">
                 <div class="mb-3">
                     <label asp-for="@Model.City" class="form-label">City</label>
                     <input asp-for="@Model.City" class="form-control" aria-required="true" />
@@ -55,6 +55,10 @@
                     </select>
                     <span asp-validation-for="@Model.SelectedCountryId" class="text-danger"></span>
                 </div> 
+                
+                <div class="mb-3">
+                    <input class="btn btn-primary" type="submit" />
+                </div>
             </form>
         </section>
 
@@ -100,9 +104,7 @@
         </section>
 
         <!-- Place Order Button -->
-        <div class="place-order">
-            <button type="submit">Place Order</button>
-        </div>
+       
     </div>
 </body>
 

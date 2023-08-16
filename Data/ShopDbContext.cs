@@ -37,7 +37,7 @@ namespace Shop.Data
         {
             builder.Entity<CustomUser>(x => x.Property(x => x.AddressId).IsRequired(false));
 
-            builder.Entity<Product>(x => x.Property(x => x.ColorId).IsRequired(false));
+            builder.Entity<Product>(x => x.Property(x => x.ColorId).IsRequired(true));
 
             builder.Entity<ImageUrlProduct>(x =>
                 x.HasKey(x => new { x.ProductId, x.ImageUrlId })

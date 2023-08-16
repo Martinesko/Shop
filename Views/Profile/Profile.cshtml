@@ -1,13 +1,11 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
-    <style>
-        /* Basic styling */
+    <head>
+        <!-- ... Your previous meta tags and title ... -->
+
+        <style>
+        /* Your previous styles... */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -64,22 +62,40 @@
                 margin-bottom: 5px;
             }
 
-    </style>
-</head>
+        /* Adding styles for the edit button */
+        .edit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            text-align: center;
+        }
 
-<body>
+        .edit-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+    </head>
+
+    <body>
 
     <div class="profile-container">
-        <img src="path_to_avatar.jpg" alt="Profile Avatar" class="avatar">
-        <div class="name">John Doe</div>
-
+        <div class="name">Name: @Model.Firstname @Model.Surname</div>
+        
         <div class="contact-info">
             <h4>Contact Information</h4>
-            <p>Email: john@example.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
+            <p>Email: @Model.Email</p>
+            <p>Phone: @Model.Phone</p>
         </div>
+
+        <!-- Edit Button -->
+        <a href="https://localhost:7105/profile/edit" class="edit-btn">Edit Profile</a>
     </div>
 
-</body>
+    </body>
 
-</html>
+    </html>

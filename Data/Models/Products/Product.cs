@@ -35,7 +35,7 @@ namespace Shop.Data.Models
         [Required]
         [ForeignKey("Size")]
         public int SizeId { get; set; }
-        public Size Size { get; set; }
+        public Size Size { get; set; } = null!;
 
         [Required]
         public int Quantity { get; set; }
@@ -44,12 +44,13 @@ namespace Shop.Data.Models
 
         public ICollection<ImageUrlProduct> ImageUrls { get; set; } = new HashSet<ImageUrlProduct>();
 
-        
-        [ForeignKey("Color")] 
-        public int? ColorId { get; set; }
+
+        [Required]
+        [ForeignKey("Color")]
+        public int ColorId { get; set; }
         public Color Color { get; set; } = null!;
-        
-        
-        
+
+
+
     }
 }

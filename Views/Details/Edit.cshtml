@@ -1,0 +1,53 @@
+﻿@model Shop.Models.Product.AddProductViewModel
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" asp-controller="details" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Model">Model</label>
+        <input asp-for="Model" class="form-control" id="Model" />
+    </div>
+
+    <div class="form-group">
+        <label for="MakeId">Make</label>
+        <select asp-for="MakeId" asp-items="@(new SelectList(Model.Makes, "Id", "Name"))" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="ModelTypeId">Model Type</label>
+        <select asp-for="ModelTypeId" asp-items="@(new SelectList(Model.ModelTypes, "Id", "Name"))" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">Category</label>
+        <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))" class="form-control"></select>
+    </div>
+
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control" id="Description"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl">Image URL</label>
+        <input asp-for="ImageUrl" class="form-control" id="ImageUrl" />
+    </div>
+
+    <div class="form-group">
+        <label for="ColorId">Color</label>
+        <select asp-for="ColorId" asp-items="@(new SelectList(Model.Colors, "Id", "Name"))" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="SizeId">Size</label>
+        <select asp-for="SizeId" asp-items="@(new SelectList(Model.Sizes, "Id", "Name"))" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <input asp-for="Price" type="number" step="0.01" class="form-control" id="Price" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
