@@ -68,9 +68,28 @@ namespace Shop.Controllers
         {
             if (ModelState.IsValid == false)
             {
-               return RedirectToAction("Error","home");
+               return RedirectToAction("Error500","Error");
             }
             await productService.AddProductAsync(model);
+            return RedirectToAction("All", "Shop");
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditProduct(int productid)
+        {
+            AddProductViewModel model = await productService.GetProductForEdit(productid);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(AddProductViewModel model)
+        {
+            if (ModelState.IsValid == false)
+            {
+               return RedirectToAction("Error500","Error");
+            }
+            
+            await productService.SaveProductAsync(model,model.ProductId);
             return RedirectToAction("All", "Shop");
         }
     }

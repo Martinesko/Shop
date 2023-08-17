@@ -10,7 +10,7 @@ namespace Shop.Models.Product
 {
     public class AddProductViewModel
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
 
         public string ModelName { get; set; }
 
