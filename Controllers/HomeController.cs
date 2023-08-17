@@ -29,9 +29,5 @@ namespace Shop.Controllers
         {
             return View();
         }
-        public IActionResult Error()
-        {
-            return View();
-        }
     }
 }

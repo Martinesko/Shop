@@ -94,34 +94,3 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#colorCheckbox').change(function () {
-            $('#colorSection').toggle(this.checked);
-        });
-    });// TO DO Color shoud be like discount
-
-    $(document).ready(function () {
-        $('#discountCheckbox').change(function () {
-            $('#discountSection').toggle(this.checked);
-
-            // Update the hidden input field with the checkbox's state
-            $('#isDiscountAdded').val(this.checked);
-        });
-    });
-    $(document).ready(function () {
-        // Add new input field for ImgUrl
-        $('.add-imgurl').click(function () {
-            var inputGroup = $('<div class="input-group mb-3"></div>');
-            var input = $('<input class="form-control" placeholder="Image URL...">').attr('name', 'ImgUrls').attr('type', 'text');
-            var removeButton = $('<button class="btn btn-outline-danger remove-imgurl" type="button"><i class="bi bi-x"></i></button>');
-            inputGroup.append(input).append(removeButton);
-            $('#imgUrlsContainer').append(inputGroup);
-        });
-
-        // Remove input field for ImgUrl
-        $(document).on('click', '.remove-imgurl', function () {
-            $(this).closest('.input-group').remove();
-        });
-    });
-</script>

@@ -33,7 +33,11 @@ namespace Shop.Controllers
         public async Task<IActionResult> RemoveUser(string deleteButton)
         {
             var UserId = Guid.Parse(deleteButton);
-            await usersService.RemoveUserAsync(UserId);
+            var flag = await usersService.RemoveUserAsync(UserId);
+            if (flag == false)
+            {
+                return RedirectToAction("Error500", "Error");
+            }
             return RedirectToAction("Users", "AdminPanel");
         }
 

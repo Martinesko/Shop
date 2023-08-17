@@ -37,14 +37,25 @@ namespace Shop.Services.UsersService
 
             return users;
         }
-        public async Task RemoveUserAsync(Guid userId)
+        public async Task<bool> RemoveUserAsync(Guid userId)
         {
+            if (dbContext.Users.FirstOrDefault(u => u.Id == userId) == null)
+            {
+                return false;
+            }
             dbContext.Users.Remove(dbContext.Users.FirstOrDefault(u => u.Id == userId));
             await dbContext.SaveChangesAsync();
+            return true;
         }
         public async Task GrandAdminUserAsync(Guid userId)
         {
-            var user = dbContext.Users.First(u => u.Id == userId);
+
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return;
+            }
 
             var adminId =  dbContext.Roles.FirstOrDefault(r => r.Name == "Admin").Id;
 

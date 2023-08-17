@@ -39,8 +39,9 @@ namespace Shop.Controllers
             {
                 return RedirectToAction("Error", "home");
             }
+
             await orderService.MakeOrder(Guid.Parse(GetUserId()), model);
-                return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","Home");
         }
     }
 }

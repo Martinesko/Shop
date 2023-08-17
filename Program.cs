@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Microsoft.AspNetCore.Identity;
 using Shop.Data.Models;
-using Shop.Services.CategoryService;
-using Shop.Services.CategoryService.Contracts;
 using Shop.Services.OrderService;
 using Shop.Services.OrderService.Contract;
 using Shop.Services.ProductService;
@@ -35,7 +33,7 @@ namespace Shop
             builder.Services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole<Guid>>().AddEntityFrameworkStores<ShopDbContext>();
 
-            builder.Services.AddScoped<ICategoryService, CategoryService>();
+
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<IShopService, ShopService>();
             builder.Services.AddScoped<IDetailsService, DetailsService>();
@@ -63,7 +61,7 @@ namespace Shop
             app.UseAuthentication(); ;
 
             app.UseAuthorization();
-            app.UseStatusCodePagesWithReExecute("/home/Error/");
+            app.UseStatusCodePagesWithReExecute("/Error/Error404/");
 
 
             app.UseEndpoints(config =>
