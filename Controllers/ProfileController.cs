@@ -34,9 +34,41 @@ namespace Shop.Controllers
         [HttpPost]
         public IActionResult Edit(ProfileViewModel model)
         {
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("Error", "home");
+            }
             var userid = Guid.Parse(GetUserId());
             profileService.EditProfileAsync(userid, model);
             return RedirectToAction("Profile","Profile");
         }
+
+        public async Task<IActionResult> Address()
+        {
+            var userId = Guid.Parse(GetUserId());
+            var model = await profileService.GetAddress(userId);
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult EditAddress()
+        {
+            var userId = Guid.Parse(GetUserId());
+            var model = profileService.GetAddress(userId).Result;
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditAddress(AddressViewModel model)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("Error", "home");
+            }
+            var userId = Guid.Parse(GetUserId());
+            profileService.SaveAddressChangesAsync(model, userId);
+            return RedirectToAction("Profile", "Profile");
+        }
+
     }
 }

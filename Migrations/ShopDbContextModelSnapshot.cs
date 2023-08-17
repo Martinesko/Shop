@@ -165,7 +165,8 @@ namespace Shop.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
@@ -176,10 +177,12 @@ namespace Shop.Migrations
 
                     b.Property<string>("Street1")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Street2")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("StreetNumber")
                         .IsRequired()
@@ -311,7 +314,8 @@ namespace Shop.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -340,7 +344,8 @@ namespace Shop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -362,38 +367,6 @@ namespace Shop.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.ImageUrl", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ImgUrls");
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.ImageUrlProduct", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ImageUrlId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "ImageUrlId");
-
-                    b.HasIndex("ImageUrlId");
-
-                    b.ToTable("ProductsImgUrls");
                 });
 
             modelBuilder.Entity("Shop.Data.Models.ModelType", b =>
@@ -470,10 +443,14 @@ namespace Shop.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ColorId")
+                    b.Property<int>("ColorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MakeId")
@@ -488,9 +465,6 @@ namespace Shop.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
 
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
@@ -633,9 +607,6 @@ namespace Shop.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quanity")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("ShoppingCartId")
                         .HasColumnType("uniqueidentifier");
 
@@ -719,25 +690,6 @@ namespace Shop.Migrations
                     b.Navigation("Address");
                 });
 
-            modelBuilder.Entity("Shop.Data.Models.ImageUrlProduct", b =>
-                {
-                    b.HasOne("Shop.Data.Models.ImageUrl", "ImageUrl")
-                        .WithMany()
-                        .HasForeignKey("ImageUrlId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Shop.Data.Models.Product", "Product")
-                        .WithMany("ImageUrls")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ImageUrl");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Shop.Data.Models.Order", b =>
                 {
                     b.HasOne("Shop.Data.Models.Address", "ShippingAddress")
@@ -775,7 +727,9 @@ namespace Shop.Migrations
 
                     b.HasOne("Shop.Data.Models.Color", "Color")
                         .WithMany()
-                        .HasForeignKey("ColorId");
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Shop.Data.Models.Products.Make", "Make")
                         .WithMany()
@@ -834,11 +788,6 @@ namespace Shop.Migrations
                     b.Navigation("Product");
 
                     b.Navigation("ShoppingCart");
-                });
-
-            modelBuilder.Entity("Shop.Data.Models.Product", b =>
-                {
-                    b.Navigation("ImageUrls");
                 });
 
             modelBuilder.Entity("Shop.Data.Models.ShoppingCart", b =>

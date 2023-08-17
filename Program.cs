@@ -34,12 +34,12 @@ namespace Shop
 
             builder.Services.AddDefaultIdentity<CustomUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole<Guid>>().AddEntityFrameworkStores<ShopDbContext>();
-            
-            builder.Services.AddScoped<ICategoryService,CategoryService>();
-            builder.Services.AddScoped<IProductService,ProductService>();
-            builder.Services.AddScoped<IShopService,ShopService>();
-            builder.Services.AddScoped<IDetailsService,DetailsService>();
-            builder.Services.AddScoped<IShoppingCartService,ShoppingCartService>();
+
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IShopService, ShopService>();
+            builder.Services.AddScoped<IDetailsService, DetailsService>();
+            builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
             builder.Services.AddScoped<IUsersService, UsersService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddScoped<IProfileService, ProfileService>();
@@ -60,9 +60,11 @@ namespace Shop
             app.UseStaticFiles();
 
             app.UseRouting();
-                        app.UseAuthentication();;
+            app.UseAuthentication(); ;
 
             app.UseAuthorization();
+            app.UseStatusCodePagesWithReExecute("/home/Error/");
+
 
             app.UseEndpoints(config =>
             {
@@ -74,7 +76,7 @@ namespace Shop
                 config.MapControllerRoute(
                     name: "ProtectingUrlRoute",
                     pattern: "/{controller}/{action}/{id}/{information}",
-                    
+
                     defaults: new { Controller = "Home", Action = "Index" });
 
                 config.MapDefaultControllerRoute();
@@ -103,12 +105,12 @@ namespace Shop
                 var userManager =
                     scope.ServiceProvider.GetRequiredService<UserManager<CustomUser>>();
 
-               
+
                 const string email = "admin@abv.bg";
                 const string password = "Admin12!";
-                 Address address = new Address()
-                 {
-                 
+                Address address = new Address()
+                {
+
                     City = "Kystendil",
                     CountryId = 1,
                     PostCode = "2500",

@@ -99,24 +99,12 @@
 
 <body>
     <div id="wrapper">
-        <div id="sidebar">
-            <h2>Admin Menu</h2>
-            <ul>
-                <li><a href="https://localhost:7105/admin/adminpanel/dashboard">DASHBOARD</a></li>
-                <li><a href="https://localhost:7105/admin/adminpanel/add">POST</a></li>
-                <li><a href="https://localhost:7105/admin/adminpanel/users">USERS</a></li>
-                <li><a href="https://localhost:7105/">GO BACK</a></li>
-            </ul>
-        </div>
-
         <div id="content">
-            <h1>Admin Dashboard - Manage Users</h1>
-
             <h2>All Users</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Username</th>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Actions</th>
@@ -131,8 +119,8 @@
                             <td>@user.UserEmail</td>
                             <td>@user.Role</td>
                             <td>
-                                <a class="grant" href="https://localhost:7105/admin/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</a>
-                                <a class="delete" href="https://localhost:7105/admin/adminpanel/removeuser?deleteButton=@user.UserId">Delete</a>
+                                <a class="grant" href="https://localhost:7105/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</a>
+                                <a class="delete" href="https://localhost:7105/adminpanel/removeuser?deleteButton=@user.UserId">Delete</a>
                             </td>
                         </tr>
                     }

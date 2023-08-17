@@ -21,6 +21,7 @@ namespace Shop.Services.ShopService
                 Id = p.Id,
                 Model = p.Model,
                 ModelType = p.ModelType.Name,
+                ImageUrl = p.ImageUrl,
                 Price = p.Price,
                 Make = p.Make.Name
             }).ToListAsync();

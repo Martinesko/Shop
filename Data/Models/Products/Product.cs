@@ -37,12 +37,10 @@ namespace Shop.Data.Models
         public int SizeId { get; set; }
         public Size Size { get; set; } = null!;
 
-        [Required]
-        public int Quantity { get; set; }
-       
         public string? Description { get; set; }
 
-        public ICollection<ImageUrlProduct> ImageUrls { get; set; } = new HashSet<ImageUrlProduct>();
+        [Required]
+        public string ImageUrl { get; set; }
 
 
         [Required]

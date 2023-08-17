@@ -61,24 +61,36 @@ namespace Shop.Services.OrderService
 
         public async Task MakeOrder(Guid Id,InputOrderViewModel model)
         {
-            var shoppingCartId = dbContext.ShoppingCarts.FirstOrDefaultAsync(sc => sc.Id == Id).Result.Id;
+            var shoppingCartId = dbContext.ShoppingCarts.FirstOrDefaultAsync(sc => sc.UserId == Id).Result;
+            var address = new Address()
+            {
+                City = model.City,
+                CountryId = model.SelectedCountryId,
+                PostCode = model.PostCode,
+                Street1 = model.Street1,
+                Street2 = model.Street2,
+                StreetNumber = model.StreetNumber
+            };
+            await dbContext.Addresses.AddAsync(address);
+
             var order = new Order()
             {
-                Id = new Guid(),
                 UserId = Id,
                 OrderDate = DateTime.Now,
-                ShippingAddress = new Address()
-                {
-                    Id = new Guid(),
-                    City = model.City,
-                    CountryId = model.SelectedCountryId,
-                    PostCode = model.PostCode,
-                    Street1 = model.Street1,
-                    Street2 = model.Street2,
-                    StreetNumber = model.StreetNumber
-                },
-                ShoppingCartId = shoppingCartId,
+                ShippingAddressId = address.Id,
+                ShoppingCartId = shoppingCartId.Id,
             };
+
+            var shoppingcart = new ShoppingCart()
+            {
+                UserId = Id
+            };
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == Id);
+
+            user.AddressId = address.Id;
+            dbContext.ShoppingCarts.Remove(shoppingcart);
+
+            dbContext.ShoppingCarts.Add(shoppingcart);
             dbContext.Orders.Add(order);
             await dbContext.SaveChangesAsync();
         }

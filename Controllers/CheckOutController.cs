@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Shop.Models.Order;
 using Shop.Services.OrderService.Contract;
 using Shop.Services.ProductService.Contract;
@@ -36,7 +37,7 @@ namespace Shop.Controllers
         {
             if (ModelState.IsValid == false)
             {
-               return RedirectToAction("CheckOut","CheckOut"); 
+                return RedirectToAction("Error", "home");
             }
             await orderService.MakeOrder(Guid.Parse(GetUserId()), model);
                 return RedirectToAction("Index","Home");

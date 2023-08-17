@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
-    <html lang="en">
+﻿@model Shop.Models.Profile.AddressViewModel
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <!-- ... Your previous meta tags and title ... -->
+<head>
+    <!-- ... Your previous meta tags and title ... -->
 
-        <style>
+    <style>
         /* Your previous styles... */
         body {
             font-family: Arial, sans-serif;
@@ -74,29 +75,30 @@
             text-align: center;
         }
 
-        .edit-btn:hover {
-            background-color: #0056b3;
-        }
+            .edit-btn:hover {
+                background-color: #0056b3;
+            }
 
     </style>
-    </head>
+</head>
 
-    <body>
+<body>
 
     <div class="profile-container">
-        <div class="name">Name: @Model.Firstname @Model.Surname</div>
-        
+
         <div class="contact-info">
-            <h4>Contact Information</h4>
-            <p>Email: @Model.Email</p>
-            <p>Phone: @Model.Phone</p>
+            <h4>Address</h4>
+            <p>City: @Model.City</p>
+            <p>Post Code: @Model.PostCode</p>
+            <p>Street1: @Model.Street1</p>
+            <p>Street2: @Model.Street2</p>
+            <p>StreetNumber: @Model.StreetNumber</p>
         </div>
 
         <!-- Edit Button -->
-        <a href="https://localhost:7105/profile/edit" class="edit-btn">Edit Profile</a>
-        <a href="https://localhost:7105/profile/address" class="edit-btn">Address</a>
+        <a href="https://localhost:7105/profile/editaddress" class="edit-btn">Edit Address</a>
     </div>
 
-    </body>
+</body>
 
-    </html>
+</html>

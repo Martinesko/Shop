@@ -46,12 +46,27 @@ namespace Shop.Services.ShoppingCartService
             return products;
         }
 
-        //public async Task RemoveShoppingCartProductAsync(int productId)
-        //{ 
-        //    var item = await dbContext.ShoppingCartItems.FirstOrDefaultAsync(sci => sci.ProductId == productId);
+        public async Task RemoveFromShoppingCartAsync(Guid userId, int ProductId)
+        {
+            // Find the user's shopping cart
+            var shoppingCart = dbContext.ShoppingCarts.FirstOrDefault(p => p.UserId == userId);
 
-        //    dbContext.ShoppingCartItems.Remove(item);
-        //    await dbContext.SaveChangesAsync();
-        //}
+            // If the cart doesn't exist or is empty, there's nothing to remove
+            if (shoppingCart == null)
+            {
+                return;
+            }
+
+            // Find the specific shopping cart item that corresponds to the given product ID
+            var shoppingCartItem = dbContext.ShoppingCartItems.FirstOrDefault(item => item.ProductId == ProductId && item.ShoppingCartId == shoppingCart.Id);
+
+            // If the item exists in the cart, remove it
+            if (shoppingCartItem != null)
+            {
+                dbContext.ShoppingCartItems.Remove(shoppingCartItem);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
     }
 }

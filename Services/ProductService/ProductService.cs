@@ -70,8 +70,9 @@ namespace Shop.Services.ProductService
                 Price = model.Price,
                 ColorId = model.ColorId,
                 CategoryId = model.CategoryId,
+                ImageUrl = model.ImageUrl,
                 Description = model.Description,
-                Model = model.Model,
+                Model = model.ModelName,
                 SizeId = model.SizeId,
             };
             await dbContext.Products.AddAsync(product);
@@ -104,57 +105,11 @@ namespace Shop.Services.ProductService
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<AddProductViewModel> EditProduct(int ProductId)
+        public async Task RemoveProductAsync(int ProductId)
         {
-            var product = await dbContext.Products.FirstOrDefaultAsync(p=>p.Id == ProductId);
-
-            var categories = await dbContext.Categories.Select(c => new ProductCategoryViewModel()
-            {
-                Id = c.Id,
-                Name = c.Name,
-            }).ToListAsync();
-
-            var makes = await dbContext.Makes.Select(m => new MakeViewModel()
-            {
-                Id = m.Id,
-                Name = m.Name,
-            }).ToListAsync();
-            var colors = await dbContext.Colors.Select(m => new ProductColorViewModel()
-            {
-                Id = m.Id,
-                Name = m.Name,
-            }).ToListAsync();
-            var modelTypes = await dbContext.ModelTypes.Select(m => new ModelTypeViewModel()
-            {
-                Id = m.Id,
-                Name = m.Name,
-            }).ToListAsync();
-            var sizes = await dbContext.Sizes.Select(s => new ProductSizeViewModel()
-            {
-                Id = s.Id,
-                Name = s.Name,
-            }).ToListAsync();
-
-           
-
-            return new AddProductViewModel()
-            {
-                Model = product.Model,
-                MakeId = product.MakeId,
-                CategoryId = product.CategoryId,
-                
-                ModelTypeId = product.ModelTypeId,
-                Description = product.Description,
-                SizeId = product.SizeId,
-                Price = product.Price,
-                Categories = categories,
-                Makes = makes,
-                Colors = colors,
-                ModelTypes = modelTypes,
-                Sizes = sizes
-            };
+            var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == ProductId);
+            dbContext.Products.Remove(product);
+            await dbContext.SaveChangesAsync();
         }
-
-      
     }
 }

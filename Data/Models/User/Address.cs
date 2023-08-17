@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static Shop.Common.EntityValidationConstants.Adress;
 
 namespace Shop.Data.Models
 {
@@ -9,10 +10,14 @@ namespace Shop.Data.Models
         public Guid Id { get; set; }
         
         [Required]
+        [StringLength(CityMaxLength, MinimumLength = CityMinLength)]
         public string City { get; set; } = null!;
 
-        [Required] 
+        [Required]
+        [StringLength(StreetMaxLength, MinimumLength = StreetMinLength)]
         public string Street1 { get; set; } = null!;
+
+        [StringLength(StreetMaxLength, MinimumLength = StreetMinLength)]
         public string? Street2 { get; set;}
         
         [Required]

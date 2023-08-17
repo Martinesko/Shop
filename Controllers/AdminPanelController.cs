@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
-using Shop.Controllers;
 using Shop.Models.Product;
 using Shop.Services.ProductService.Contract;
 using Shop.Services.UsersService.Contract;
+using System.Data;
 
-namespace Shop.Areas.Admin.Controllers
+namespace Shop.Controllers
 {
-    public class AdminPanelController : BaseController
-    { 
+    [Authorize(Roles = "Admin")]
+    public class AdminPanelController : Controller
+    {
         private readonly IProductService productService;
         private readonly IUsersService usersService;
         public AdminPanelController(IProductService productService, IUsersService usersService)
@@ -17,21 +19,17 @@ namespace Shop.Areas.Admin.Controllers
             this.usersService = usersService;
         }
 
-
-        public IActionResult DashBoard()
+        public IActionResult Dashboard()
         {
             return View();
         }
+
         public IActionResult Users()
         {
             var users = usersService.GetAllUsersAsync();
             return View(users.Result);
         }
-        public IActionResult Orders()
-        {
-            return View();
-        }
-        
+
         public async Task<IActionResult> RemoveUser(string deleteButton)
         {
             var UserId = Guid.Parse(deleteButton);
@@ -47,7 +45,14 @@ namespace Shop.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public async Task<IActionResult> Remove(int productId)
+        {
+            await productService.RemoveProductAsync(productId);
+            return RedirectToAction("All","Shop");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddProduct()
         {
             AddProductViewModel model = await productService.GetAddedProduct();
 
@@ -55,21 +60,14 @@ namespace Shop.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AddProductViewModel model)
+        public async Task<IActionResult> AddProduct(AddProductViewModel model)
         {
-            //if (ModelState.IsValid == false)
-            //{
-            //    return RedirectToAction("Add");
-            //}
-             await productService.AddProductAsync(model);
-            return RedirectToAction("DashBoard", "AdminPanel");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(int productId)
-        {
-            AddProductViewModel model = await productService.EditProduct(productId);
-            return View(model);
+            if (ModelState.IsValid == false)
+            {
+               return RedirectToAction("Error","home");
+            }
+            await productService.AddProductAsync(model);
+            return RedirectToAction("All", "Shop");
         }
     }
 }

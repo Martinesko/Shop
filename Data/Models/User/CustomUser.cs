@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
+using static Shop.Common.EntityValidationConstants.User;
 
 namespace Shop.Data.Models
 {
@@ -11,7 +12,9 @@ namespace Shop.Data.Models
             this.Id = Guid.NewGuid();
         }
 
+        [StringLength(FirstNameMaxLength, MinimumLength = FirstNameMinLength)]
         public string? FirstName { get; set; }
+        [StringLength(SurNameMaxLength, MinimumLength = SurNameMinLength)]
         public string? Surname { get; set; }
 
         public string? PhoneNumber { get; set; }

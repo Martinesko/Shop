@@ -63,16 +63,16 @@ namespace Shop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ImgUrls",
+                name: "Makes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ImgUrls", x => x.Id);
+                    table.PrimaryKey("PK_Makes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,15 +89,16 @@ namespace Shop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrdersStatuses",
+                name: "Sizes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrdersStatuses", x => x.Id);
+                    table.PrimaryKey("PK_Sizes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -126,9 +127,9 @@ namespace Shop.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Street1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Street2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Street1 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Street2 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     StreetNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: false)
@@ -151,13 +152,14 @@ namespace Shop.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Make = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MakeId = table.Column<int>(type: "int", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ModelTypeId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ColorId = table.Column<int>(type: "int", nullable: true)
+                    SizeId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ColorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -172,11 +174,24 @@ namespace Shop.Migrations
                         name: "FK_Products_Colors_ColorId",
                         column: x => x.ColorId,
                         principalTable: "Colors",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Makes_MakeId",
+                        column: x => x.MakeId,
+                        principalTable: "Makes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Products_ModelTypes_ModelTypeId",
                         column: x => x.ModelTypeId,
                         principalTable: "ModelTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_Sizes_SizeId",
+                        column: x => x.SizeId,
+                        principalTable: "Sizes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -186,6 +201,9 @@ namespace Shop.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
+                    Surname = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -195,7 +213,6 @@ namespace Shop.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -210,30 +227,6 @@ namespace Shop.Migrations
                         column: x => x.AddressId,
                         principalTable: "Addresses",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProductsImgUrls",
-                columns: table => new
-                {
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    ImageUrlId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductsImgUrls", x => new { x.ProductId, x.ImageUrlId });
-                    table.ForeignKey(
-                        name: "FK_ProductsImgUrls_ImgUrls_ImageUrlId",
-                        column: x => x.ImageUrlId,
-                        principalTable: "ImgUrls",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductsImgUrls_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -347,7 +340,6 @@ namespace Shop.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ShippingAddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    OrderStatusId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ShoppingCartId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -366,12 +358,6 @@ namespace Shop.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_OrdersStatuses_OrderStatusId",
-                        column: x => x.OrderStatusId,
-                        principalTable: "OrdersStatuses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "FK_Orders_ShoppingCarts_ShoppingCartId",
                         column: x => x.ShoppingCartId,
                         principalTable: "ShoppingCarts",
@@ -385,8 +371,7 @@ namespace Shop.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ShoppingCartId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Quanity = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -403,6 +388,64 @@ namespace Shop.Migrations
                         principalTable: "ShoppingCarts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Pants" },
+                    { 2, "T-shirt" },
+                    { 3, "Underwear" },
+                    { 4, "Jeans" },
+                    { 5, "Trousers" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Red" },
+                    { 2, "Black" },
+                    { 3, "White" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Makes",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Adidas" },
+                    { 2, "Nike" },
+                    { 3, "Puma" },
+                    { 4, "Diesel" },
+                    { 5, "Armani" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ModelTypes",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Slim" },
+                    { 2, "Over sized" },
+                    { 3, "Regular" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sizes",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "XS" },
+                    { 2, "S" },
+                    { 3, "M" },
+                    { 4, "L" },
+                    { 5, "XL" },
+                    { 6, "XXL" },
+                    { 7, "One Size Fit All" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -455,11 +498,6 @@ namespace Shop.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_OrderStatusId",
-                table: "Orders",
-                column: "OrderStatusId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Orders_ShippingAddressId",
                 table: "Orders",
                 column: "ShippingAddressId");
@@ -485,14 +523,19 @@ namespace Shop.Migrations
                 column: "ColorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_MakeId",
+                table: "Products",
+                column: "MakeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_ModelTypeId",
                 table: "Products",
                 column: "ModelTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductsImgUrls_ImageUrlId",
-                table: "ProductsImgUrls",
-                column: "ImageUrlId");
+                name: "IX_Products_SizeId",
+                table: "Products",
+                column: "SizeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_ProductId",
@@ -531,19 +574,10 @@ namespace Shop.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "ProductsImgUrls");
-
-            migrationBuilder.DropTable(
                 name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "OrdersStatuses");
-
-            migrationBuilder.DropTable(
-                name: "ImgUrls");
 
             migrationBuilder.DropTable(
                 name: "Products");
@@ -558,7 +592,13 @@ namespace Shop.Migrations
                 name: "Colors");
 
             migrationBuilder.DropTable(
+                name: "Makes");
+
+            migrationBuilder.DropTable(
                 name: "ModelTypes");
+
+            migrationBuilder.DropTable(
+                name: "Sizes");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

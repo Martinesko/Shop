@@ -24,7 +24,7 @@ namespace Shop.Services.ShopService
                  Make = product.Make.Name,
                  ModelType = product.ModelType.Name,
                  Category = product.Category.Name,
-                 Quantity = product.Quantity,
+                 ImageUrl = product.ImageUrl,
                  Description = product.Description,
                  Color = product.Color.Name,
                  Price = product.Price,

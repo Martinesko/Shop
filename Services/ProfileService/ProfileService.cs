@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Shop.Data;
 using Shop.Data.Models;
+using Shop.Models.Country;
 using Shop.Models.Profile;
 using Shop.Services.ProfileService.Contract;
 
@@ -50,6 +51,50 @@ namespace Shop.Services.ProfileService
            user.NormalizedUserName = model.Email;
            user.UserName = model.Email;
            user.PhoneNumber = model.Phone;
+           await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<AddressViewModel> GetAddress(Guid UserId)
+        {
+            var user = await dbContext.Users.FirstOrDefaultAsync(u=>u.Id == UserId);
+
+            var address = await dbContext.Addresses.FirstOrDefaultAsync(u=>u.Id == user.AddressId);
+
+            var countries = dbContext.Countries.Select(c=>new CountryViewModel()
+            {
+                Id = c.Id,
+                Name = c.Name,
+            });
+
+            return new AddressViewModel()
+            {
+                Id = address.Id,
+                City = address.City,
+                PostCode = address.PostCode,
+                Street1 = address.Street1,
+                Street2 = address.Street2,
+                SelectedCountryId = address.CountryId,
+                StreetNumber = address.StreetNumber,
+                Countries = countries
+            };
+        }
+
+        public async Task SaveAddressChangesAsync(AddressViewModel model,Guid userId)
+        {
+            var address = new Address();
+
+            address.City = model.City;
+            address.PostCode = model.PostCode;
+            address.Street1 = model.Street1;
+            address.Street2 = model.Street2;
+            address.CountryId = model.SelectedCountryId;
+            address.StreetNumber = model.StreetNumber;
+
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            
+            dbContext.Addresses.Add(address);
+            user.AddressId = address.Id;
+
            await dbContext.SaveChangesAsync();
         }
     }

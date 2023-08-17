@@ -1,4 +1,5 @@
-﻿﻿
+﻿@using Microsoft.CodeAnalysis.CSharp.Syntax
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,20 +25,17 @@
                         </li>
                         <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Shop" asp-action="All">Shop</a>
-                        </li>
+                        </li> 
+                        
                     </ul>
 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
                     }
-
-                    @if (User.IsInRole("Admin")) 
+                    @if (User.IsInRole("Admin"))
                     {
-                        <!-- Admin Button for Admins only -->
-                        
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Adminpanel" asp-action="Dashboard">Admin</a>
-                        
+                        <a class="nav-link text-dark" asp-area="" asp-controller="AdminPanel" asp-action="Dashboard">Dashboard</a>
                     }
                     <a class="btn btn-outline-dark flex-shrink-0" asp-area="" asp-controller="ShoppingCart" asp-action="Cart">🛒Cart</a>
                     <partial name="_LoginPartial" />
@@ -53,7 +51,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Shop
+            &copy; 2022 - Shop <a href="/home/Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

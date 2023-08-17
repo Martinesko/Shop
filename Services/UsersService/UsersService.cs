@@ -21,7 +21,7 @@ namespace Shop.Services.UsersService
             var users = await dbContext.Users.Select(u => new UsersViewModel()
             {
                 UserId = u.Id, 
-                UserName = u.UserName,
+                UserName = $"{u.FirstName} {u.Surname}",
                 UserEmail = u.Email,
             }).ToListAsync();
             foreach (var user in users)
@@ -37,13 +37,11 @@ namespace Shop.Services.UsersService
 
             return users;
         }
-
         public async Task RemoveUserAsync(Guid userId)
         {
             dbContext.Users.Remove(dbContext.Users.FirstOrDefault(u => u.Id == userId));
             await dbContext.SaveChangesAsync();
         }
-
         public async Task GrandAdminUserAsync(Guid userId)
         {
             var user = dbContext.Users.First(u => u.Id == userId);

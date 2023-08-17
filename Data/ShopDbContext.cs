@@ -22,9 +22,7 @@ namespace Shop.Data
         public DbSet<Color> Colors { get; set; } = null!;
         public DbSet<Make> Makes { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<ImageUrl> ImgUrls { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
-        public DbSet<ImageUrlProduct> ProductsImgUrls { get; set; } = null!;
         public DbSet<ModelType> ModelTypes { get; set; } = null!;
         public DbSet<Size> Sizes { get; set; } = null!;
 
@@ -39,9 +37,6 @@ namespace Shop.Data
 
             builder.Entity<Product>(x => x.Property(x => x.ColorId).IsRequired(true));
 
-            builder.Entity<ImageUrlProduct>(x =>
-                x.HasKey(x => new { x.ProductId, x.ImageUrlId })
-            );
 
             builder
                 .Entity<Category>()
