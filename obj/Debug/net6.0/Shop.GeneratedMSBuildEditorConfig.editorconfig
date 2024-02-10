@@ -9,121 +9,123 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Shop
 build_property.RootNamespace = Shop
-build_property.ProjectDir = C:\Users\meane\Programing\ASP.NET Advanced\AnevAuto\AnevAuto\
+build_property.ProjectDir = C:\Users\Martin\Documents\Personal Projects\Shop\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\meane\Programing\ASP.NET Advanced\AnevAuto\AnevAuto
+build_property.MSBuildProjectDirectory = C:\Users\Martin\Documents\Personal Projects\Shop
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/AdminPanel/AddProduct.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/AdminPanel/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxBZGRQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/AdminPanel/Dashboard.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/AdminPanel/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/AdminPanel/EditProduct.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/AdminPanel/EditProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxFZGl0UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/AdminPanel/Users.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/AdminPanel/Users.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/CheckOut/CheckOut.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/CheckOut/CheckOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tPdXRcQ2hlY2tPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Details/Details.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Details/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Home/Index.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Home/Privacy.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Profile/Address.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Profile/Address.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxBZGRyZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Profile/Edit.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Profile/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Profile/EditAddress.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Profile/EditAddress.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0QWRkcmVzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Profile/Profile.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Profile/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shared/Error404.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shared/Error404.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNDA0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shared/Error500.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shared/Error500.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNTAwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/ShoppingCart/Cart.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/ShoppingCart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcHBpbmdDYXJ0XENhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shop/All.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shop/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/_ViewImports.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/_ViewStart.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meane/Programing/ASP.NET Advanced/AnevAuto/AnevAuto/Views/Shared/_Layout.cshtml]
+[C:/Users/Martin/Documents/Personal Projects/Shop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bv1m2l6qkp

@@ -6,54 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Item - Start Bootstrap Template</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/homepage.css" rel="stylesheet" />
+    <title>Change</title>
+    <link type="text/css" rel="stylesheet" href="/css/Details/details.css">
 </head>
-<body>
-    <!-- Product section-->
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"> <img id="large-image" style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="@Model.ImageUrl" /></div>
-                <div class="col-md-6">
-                    <h1 class="display-5 fw-bolder">@Model.Model</h1>
-                    <div class="small mb-1"></div>
+    <section class="sectionX">
+        <div class="sectionY">
+            <div class="container">
+                <div class="image-holder">
+                    <img class="image" src="https://images.penguinrandomhouse.com/cover/9780399181153" />
+                </div>
+                <div class="information">
+                    <h1 class="">@Model.Model</h1>
+                    <div class=""></div>
                     <span>Size: @Model.Size</span>
-                    <div class="small mb-1"></div>
+                    <div class=""></div>
                     <span>Color: @Model.Color</span>
-                    <div class="fs-5 mb-5">
+                    <div class="">
                         <span>$@Model.Price</span>
                     </div>
-                    <p class="lead">@Model.Description</p>
-                    <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <p class="description">@Model.Description</p>
+                    <div class="action">
+                        <div>
+                            <input class="" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
 
-                        <a href="https://localhost:7105/Details/Add/?productId=@Model.Id" class="btn btn-outline-dark flex-shrink-0">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
-                        </a>
+                            <a href="https://localhost:7105/Details/Add/?productId=@Model.Id" class="add-button">
+                                Add to cart
+                            </a>
+                        </div>
+
                         @if (User.IsInRole("Admin"))
                         {
-                            <a href="https://localhost:7105/adminpanel/remove?productId=@Model.Id" class="btn btn-outline-dark flex-shrink-0">
-                                Remove
-                            </a>
-                            <a href="https://localhost:7105/adminpanel/editproduct?productId=@Model.Id" class="btn btn-outline-dark flex-shrink-0">
-                                Edit
-                            </a>
+                            <div class="admin-buttons">
+                                <a href="https://localhost:7105/adminpanel/remove?productId=@Model.Id" class="remove-button">
+                                    Remove
+                                </a>
+                                <a href="https://localhost:7105/adminpanel/editproduct?productId=@Model.Id" class="edit-button">
+                                    Edit
+                                </a>
+                            </div>
                         }
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-</body>
 </html>

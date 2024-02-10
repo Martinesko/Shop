@@ -24,8 +24,17 @@ namespace Shop.Controllers
         }
          public async Task<IActionResult> Add(int productId)
          {
-             await productService.AddToShoppingCartAsync(Guid.Parse(GetUserId()), productId);
-            return RedirectToAction("Cart","ShoppingCart");
+             string check = GetUserId();
+             Console.WriteLine(check);
+             if (check != null)
+             {
+                 await productService.AddToShoppingCartAsync(Guid.Parse(GetUserId()), productId);
+                 return RedirectToAction("Cart","ShoppingCart");
+             }
+             else
+             {
+                return RedirectToAction("","Home");
+            }
         }
 
          //public async Task<IActionResult> Edit(int productId)

@@ -1,0 +1,87 @@
+﻿
+
+.sectionX {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 1200px;
+    min-height: 500px;
+}
+
+
+.image {
+    max-width: 500px;
+    height: auto;
+}
+
+.description {
+    max-width: 500px;
+}
+
+.information {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-button {
+    background: white;
+    border-color: black;
+    color: black;
+    padding: 4px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    text-decoration: none;
+}
+
+.remove-button {
+    background: white;
+    border-color: red;
+    color: red;
+    padding: 4px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    text-decoration: none;
+    width: 70px;
+    text-align: center;
+}
+
+.edit-button {
+    background: rgb(245, 245, 245);
+    border-color: blue;
+    color: blue;
+    padding: 4px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    text-decoration: none;
+    text-align: center;
+    width: 70px;
+}
+
+.admin-buttons {
+    text-align: center;
+    display: flex;
+    gap: 20px;
+}
