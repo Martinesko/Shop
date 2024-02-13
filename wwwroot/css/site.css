@@ -24,3 +24,6 @@ body {
 .container-d{
     min-height:89vh;
 }
+input:focus {
+    outline: none;
+}

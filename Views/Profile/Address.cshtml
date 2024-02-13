@@ -4,90 +4,15 @@
 
 <head>
     <!-- ... Your previous meta tags and title ... -->
-
-    <style>
-        /* Your previous styles... */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f6f7fb;
-            color: #333;
-        }
-
-        .profile-container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .name {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .bio {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 16px;
-            color: #777;
-        }
-
-        .contact-info {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 8px;
-        }
-
-            .contact-info h4 {
-                margin-top: 0;
-                margin-bottom: 10px;
-                font-weight: bold;
-            }
-
-            .contact-info p {
-                margin-bottom: 5px;
-            }
-
-        /* Adding styles for the edit button */
-        .edit-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-            .edit-btn:hover {
-                background-color: #0056b3;
-            }
-
-    </style>
+    <link type="text/css" rel="stylesheet" href="/css/Edit/address.css">
 </head>
 
 <body>
 
     <div class="profile-container">
-
+        <h1 class="title">Address</h1>
         <div class="contact-info">
-            <h4>Address</h4>
+            <h4>Address Information</h4>
             <p>City: @Model.City</p>
             <p>Post Code: @Model.PostCode</p>
             <p>Street1: @Model.Street1</p>

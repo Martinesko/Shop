@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\css\\Details\\details.css"
     },
     {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Edit\\address.css",
+      "PackagePath": "staticwebassets\\css\\Edit\\address.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Edit\\edit-address.css",
+      "PackagePath": "staticwebassets\\css\\Edit\\edit-address.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Edit\\edit.css",
+      "PackagePath": "staticwebassets\\css\\Edit\\edit.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Edit\\profile.css",
+      "PackagePath": "staticwebassets\\css\\Edit\\profile.css"
+    },
+    {
       "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\cart.css",
       "PackagePath": "staticwebassets\\css\\cart.css"
     },
