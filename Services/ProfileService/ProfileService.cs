@@ -65,6 +65,20 @@ namespace Shop.Services.ProfileService
                 Id = c.Id,
                 Name = c.Name,
             });
+            if (address == null)
+            {
+                var newAddress = new Address();
+                newAddress.City = "";
+                newAddress.CountryId= 1;
+                newAddress.PostCode = "";
+                newAddress.Street1 = "";
+                newAddress.Street2 = "";
+                newAddress.StreetNumber = "";
+                await dbContext.Addresses.AddAsync(newAddress);
+                user.AddressId = newAddress.Id;
+                address = newAddress;
+                await dbContext.SaveChangesAsync();
+            }
 
             return new AddressViewModel()
             {
@@ -86,13 +100,14 @@ namespace Shop.Services.ProfileService
             address.City = model.City;
             address.PostCode = model.PostCode;
             address.Street1 = model.Street1;
+            address.Id = model.Id;
             address.Street2 = model.Street2;
             address.CountryId = model.SelectedCountryId;
             address.StreetNumber = model.StreetNumber;
 
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             
-            dbContext.Addresses.Add(address);
+            await dbContext.Addresses.AddAsync(address);
             user.AddressId = address.Id;
 
            await dbContext.SaveChangesAsync();

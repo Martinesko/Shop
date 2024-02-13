@@ -61,10 +61,6 @@ namespace Shop.Controllers
         [HttpPost]
         public IActionResult EditAddress(AddressViewModel model)
         {
-            if (ModelState.IsValid == false)
-            {
-                return RedirectToAction("Error", "home");
-            }
             var userId = Guid.Parse(GetUserId());
             profileService.SaveAddressChangesAsync(model, userId);
             return RedirectToAction("Profile", "Profile");

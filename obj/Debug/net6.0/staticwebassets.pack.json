@@ -5,8 +5,28 @@
       "PackagePath": "staticwebassets\\Shop.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Details\\details.css",
-      "PackagePath": "staticwebassets\\css\\Details\\details.css"
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\AdminPanel\\addproduct.css",
+      "PackagePath": "staticwebassets\\css\\AdminPanel\\addproduct.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\AdminPanel\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\AdminPanel\\dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\AdminPanel\\editporduct.css",
+      "PackagePath": "staticwebassets\\css\\AdminPanel\\editporduct.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\AdminPanel\\users.css",
+      "PackagePath": "staticwebassets\\css\\AdminPanel\\users.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\CheckOut\\checkout.css",
+      "PackagePath": "staticwebassets\\css\\CheckOut\\checkout.css"
+    },
+    {
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Details\\detail.css",
+      "PackagePath": "staticwebassets\\css\\Details\\detail.css"
     },
     {
       "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Edit\\address.css",
@@ -25,8 +45,8 @@
       "PackagePath": "staticwebassets\\css\\Edit\\profile.css"
     },
     {
-      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\cart.css",
-      "PackagePath": "staticwebassets\\css\\cart.css"
+      "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\Shopping Cart\\cart.css",
+      "PackagePath": "staticwebassets\\css\\Shopping Cart\\cart.css"
     },
     {
       "Id": "C:\\Users\\Martin\\Documents\\Personal Projects\\Shop\\wwwroot\\css\\site.css",

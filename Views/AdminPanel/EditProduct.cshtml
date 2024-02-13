@@ -1,40 +1,38 @@
 ﻿@{
     ViewBag.Title = "Edit Product";
 }
-@model Shop.Models.Product.AddProductViewModel; // Use an appropriate ViewModel for Editing
+@model Shop.Models.Product.AddProductViewModel; 
 
-<div class="row" align="center">
-    <h1>Edit Product</h1>
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+<head>
+    <link type="text/css" rel="stylesheet" href="/css/AdminPanel/editporduct.css">
+</head>
+
+<div class="container">
+    <h1 class="title">Edit Product</h1>
         <form method="post">
-            <!--  Make  -->
             <div class="form-group">
-                <label asp-for="ModelName"></label>
+            <label asp-for="ModelName">Model Name</label>
                 <input asp-for="ModelName" class="form-control" placeholder="Make..." value="@Model.ModelName">
                 <span asp-validation-for="ModelName" class="small text-danger"></span>
             </div>
-            <!--  Description  -->
             <div class="form-group">
-                <label asp-for="Description"></label>
+            <label asp-for="Description">Description</label>
                 <textarea asp-for="Description" rows="4" class="form-control" placeholder="Two bedrooms..."></textarea>
                 <span asp-validation-for="Description" class="small text-danger"></span>
             </div>
-            <!--  ImgUrl  -->
             <div class="form-group">
-                <label asp-for="ImageUrl"></label>
+            <label asp-for="ImageUrl">Image Url</label>
                 <input asp-for="ImageUrl" class="form-control">
                 <span asp-validation-for="ImageUrl" class="small text-danger"></span>
             </div>
-            <!--  Price  -->
             <div class="form-group">
-                <label asp-for="Price"></label>
+            <label asp-for="Price">Price</label>
                 <input asp-for="Price" class="form-control">
                 <span asp-validation-for="Price" class="small text-danger"></span>
             </div>
 
-            <!--  TypeId  -->
             <div class="form-group">
-                <label asp-for="ModelTypeId"></label>
+            <label asp-for="ModelTypeId">Model Type</label>
                 <select asp-for="ModelTypeId" class="form-control">
                     @foreach (var type in Model.ModelTypes)
                     {
@@ -44,7 +42,7 @@
                 <span asp-validation-for="ModelTypeId" class="small text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SizeId"></label>
+                <label asp-for="SizeId">Size</label>
                 <select asp-for="SizeId" class="form-control">
                     @foreach (var type in Model.Sizes)
                     {
@@ -53,9 +51,8 @@
                 </select>
                 <span asp-validation-for="SizeId" class="small text-danger"></span>
             </div>
-            <!--  MakeId  -->
             <div class="form-group">
-                <label asp-for="MakeId"></label>
+            <label asp-for="MakeId">Make</label>
                 <select asp-for="MakeId" class="form-control">
                     @foreach (var type in Model.Makes)
                     {
@@ -64,9 +61,8 @@
                 </select>
                 <span asp-validation-for="MakeId" class="small text-danger"></span>
             </div>
-            <!--  CategoryId  -->
             <div class="form-group">
-                <label asp-for="CategoryId"></label>
+            <label asp-for="CategoryId">Category</label>
                 <select asp-for="CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)
                     {
@@ -75,7 +71,6 @@
                 </select>
                 <span asp-validation-for="CategoryId" class="small text-danger"></span>
             </div>
-            <!--  ColorId  -->
             <div class="form-group">
                 <label asp-for="ColorId"></label>
                 <select asp-for="ColorId" class="form-control">
@@ -88,10 +83,9 @@
             </div>
 
             <div class="text-center">
-                <input class="btn btn-primary mt-3" type="submit" value="Save" />
+                <input class="edit-btn" type="submit" value="Save" />
             </div>
         </form>
-    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

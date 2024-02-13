@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/Shopping Cart/cart.css">
 </head>
 <body>
     <div class="shopping-cart" align="center">
@@ -22,19 +22,17 @@
                 </tr>
             </thead>
             <tbody>
-            <!-- Example cart item -->
             
                @foreach (var product in Model)
                 {
                     <tr>
                             <td><div align="center">@product.Model</div></td>
                         <td><div align="center">$@product.Price</div></td>
-                            <td><div align="center"><a  class="btn btn-primary" href="https://localhost:7105/shoppingCart/remove?productId=@product.Id">Remove</a></div></td>
+                            <td><div align="center"><a  class="remove-btn" href="https://localhost:7105/shoppingCart/remove?productId=@product.Id">Remove</a></div></td>
                     </tr>
                 }
             
                 
-                <!-- Repeat rows like the above for each item in the cart -->
             </tbody>
         </table>
             }
@@ -51,7 +49,7 @@
         </div>
         
             <div class="checkout-button">
-                <a href="/CheckOut/CheckOut" class="btn btn-primary">Checkout</a>
+                <a href="/CheckOut/CheckOut" class="order-btn">Checkout</a>
             </div>
         }
 

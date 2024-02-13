@@ -3,130 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Manage Users</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        #wrapper {
-            display: flex;
-        }
-
-        #sidebar {
-            width: 20%;
-            background-color: #333;
-            height: 100vh;
-            color: #fff;
-            padding: 10px;
-        }
-
-        #content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        #sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-            #sidebar ul li {
-                padding: 10px;
-                border-bottom: 1px solid #444;
-            }
-
-                #sidebar ul li a {
-                    color: #fff;
-                    text-decoration: none;
-                }
-
-                    #sidebar ul li a:hover {
-                        text-decoration: underline;
-                    }
-
-        /* User Management Table Styling */
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        a.grant, a.delete {
-            text-align: center;
-            padding: 5px 15px;
-            margin: 0 5px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        a.grant {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        a.delete {
-            background-color: #ff3333;
-            color: #fff;
-        }
-
-        a:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="/css/AdminPanel/users.css">
 </head>
 
 <body>
-    <div id="wrapper">
-        <div id="content">
-            <h2>All Users</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Example User Row -->
-                    @foreach (var user in Model)
-                    {
-                        <tr>
-                            <td>@user.UserName</td>
-                            <td>@user.UserEmail</td>
-                            <td>@user.Role</td>
-                            <td>
-                                <a class="grant" href="https://localhost:7105/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</a>
-                                <a class="delete" href="https://localhost:7105/adminpanel/removeuser?deleteButton=@user.UserId">Delete</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+   
+        <h2 class="title">All Users</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.UserEmail</td>
+                    <td>@user.Role</td>
+                    <td>
+                        <a class="edit-btn" href="https://localhost:7105/adminpanel/GrantAdmin?userId=@user.UserId">Grant Admin</a>
+                        <a class="edit-btn" href="https://localhost:7105/adminpanel/removeuser?deleteButton=@user.UserId">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
 </body>
 

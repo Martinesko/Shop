@@ -1,11 +1,4 @@
 ﻿
-
-.sectionX {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
     margin-top: 40px;
     display: flex;
@@ -18,9 +11,12 @@
     border-radius: 20px;
     width: 1200px;
     min-height: 500px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
-
-
+.image {
+    max-width: 500px;
+    height: auto;
+}
 .image {
     max-width: 500px;
     height: auto;

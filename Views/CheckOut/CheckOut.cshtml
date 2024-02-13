@@ -9,14 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Assuming you have a styles.css for styling -->
+    <link type="text/css" rel="stylesheet" href="/css/CheckOut/checkout.css">
 </head>
 
 <body>
     <div class="checkout-container">
-        <h2>Checkout</h2>
+        <h2 class="">Checkout</h2>
 
-        <!-- Shipping Information -->
         <section class="shipping-information">
             <h3>Shipping Information</h3>
             <form method="post" asp-controller="CheckOut" asp-action="CheckOutTask">
@@ -57,12 +56,11 @@
                 </div> 
                 
                 <div class="mb-3">
-                    <input class="btn btn-primary" type="submit" />
+                    <input class="order-btn" type="submit" value="Place order" />
                 </div>
             </form>
         </section>
 
-        <!-- Shipping Method -->
         <section class="shipping-method">
             <label>
                 Shipping - $7.00
@@ -70,7 +68,6 @@
             
         </section>
 
-        <!-- Payment Details -->
         <section class="payment-details">
             <h3>Payment Details</h3>
             <label>
@@ -78,12 +75,9 @@
             </label>
         </section>
 
-        <!-- Order Review -->
         <section class="order-review">
             <h3>Review Your Order</h3>
-            <!-- List of products, their sizes, quantity, and prices -->
             <div class="product-list">
-                <!-- Example product -->
                 @foreach (var product in Model.Products)
                 {
                     <div class="product">
@@ -96,107 +90,11 @@
                     <span class="product-name">Services</span>
                     <span class="product-name">$10.00</span>
                 </div>
-                <!-- Add more products as required -->
             </div>
             <div class="total-price">
                 <span>Total: $@ViewBag.Total</span>
             </div>
         </section>
-
-        <!-- Place Order Button -->
-       
     </div>
 </body>
-
 </html>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    .checkout-container {
-        width: 80%;
-        max-width: 1200px;
-        margin: 50px auto;
-        background-color: #ffffff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2, h3 {
-        margin: 0 0 15px;
-        padding: 0;
-        color: #333;
-    }
-
-    h3 {
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-    }
-
-    form {
-        margin-bottom: 30px;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="tel"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    input[type="radio"] {
-        margin-right: 10px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .product-list {
-        margin-bottom: 20px;
-    }
-
-    .product {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #ddd;
-        padding: 10px 0;
-        margin-bottom: 10px;
-    }
-
-    .total-price {
-        text-align: right;
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .place-order {
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    button {
-        background-color: #007BFF;
-        color: #fff;
-        padding: 15px 25px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-</style>
