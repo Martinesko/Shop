@@ -25,7 +25,6 @@ namespace Shop.Controllers
          public async Task<IActionResult> Add(int productId)
          {
              string check = GetUserId();
-             Console.WriteLine(check);
              if (check != null)
              {
                  await productService.AddToShoppingCartAsync(Guid.Parse(GetUserId()), productId);
@@ -36,11 +35,6 @@ namespace Shop.Controllers
                 return RedirectToAction("","Home");
             }
         }
-
-         //public async Task<IActionResult> Edit(int productId)
-         //{
-
-         //}
 
     }
 }

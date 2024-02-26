@@ -33,11 +33,15 @@ namespace Shop.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CheckOutTask(InputOrderViewModel model)
+        public async Task<IActionResult> CheckOut(InputOrderViewModel model)
         {
-            if (ModelState.IsValid == false)
+            var Id = Guid.Parse(GetUserId());
+            var m = await orderService.GetOrderAdressAsync(Id);
+            if (model.City == null || model.Street1 == null || model.StreetNumber == null || model.PostCode == null || model.SelectedCountryId == null)
             {
-                return RedirectToAction("Error", "home");
+                model.Countries = m.Countries;
+                model.Products = m.Products;
+                return View(model);
             }
 
             await orderService.MakeOrder(Guid.Parse(GetUserId()), model);

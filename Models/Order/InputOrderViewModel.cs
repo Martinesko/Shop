@@ -28,7 +28,7 @@ namespace Shop.Models.Order
         [Required(ErrorMessage = "Please select a country.")]
         public int SelectedCountryId { get; set; }
 
-        public Guid ShoppingCartId { get; set; }
+        public Guid? ShoppingCartId { get; set; }
 
         public IEnumerable<CountryViewModel> Countries { get; set; }
         

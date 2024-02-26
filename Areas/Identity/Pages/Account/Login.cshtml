@@ -4,13 +4,29 @@
 @{
     ViewData["Title"] = "Log in";
 }
-
-<h1 style="  margin: auto; width: 50%;  padding: 10px; text-align: center;">@ViewData["Title"]</h1>
+<head>
+    <style>
+        .edit-profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            gap: 10px;
+        }
+        #account {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
 <div class="row">
-    <div class="col-md-4" style="  margin: auto; width: 50%;  padding: 10px;">
+    <div class="edit-profile-container" style="  margin: auto; width: 50%;  padding: 10px;">
         <section>
+            <h1 style="  margin: auto; width: 50%;  padding: 10px; text-align: center;">@ViewData["Title"]</h1>
             <form id="account" method="post">
-                <h2 style="text-align: center;">Use a local account to log in.</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">

@@ -1,0 +1,96 @@
+﻿
+
+.shopping-cart {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    vertical-align: middle;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.remove-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+    background-color: red;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+    .remove-btn:hover {
+        transition: background-color 0.5s;
+        background-color: white;
+        color: red;
+    }
+.order-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #35393d;
+    background-color: #35393d;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+    .order-btn:hover {
+        transition: background-color 0.5s;
+        background-color: white;
+        color: black;
+    }
+
+
+.cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.checkout-button {
+    text-align: right;
+    margin-top: 10px;
+}

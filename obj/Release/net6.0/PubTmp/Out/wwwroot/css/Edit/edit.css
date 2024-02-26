@@ -1,0 +1,54 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f7fb;
+    color: #333;
+}
+
+.edit-profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+    }
+
+.edit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #35393d;
+    background-color: #35393d;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+    .edit-btn:hover {
+        transition: background-color 0.5s;
+        background-color: white;
+        color: black;
+    }

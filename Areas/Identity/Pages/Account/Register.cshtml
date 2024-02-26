@@ -4,12 +4,31 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 style="text-align: center;">@ViewData["Title"]</h1>
+<head>
+    <style>
+        .edit-profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            gap: 10px;
+        }
+
+        #registerForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+
 
 <div class="row">
-    <div style="  margin: auto; width: 50%;  padding: 10px; text-align: center;" class="col-md-4">
+    <div class="edit-profile-container">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h1 style="text-align: center;">@ViewData["Title"]</h1>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">

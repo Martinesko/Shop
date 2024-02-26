@@ -14,39 +14,18 @@
         
             <div class="col mb-5">
                 <div class="card h-100">
-                    <!-- Product image-->
                             <img class="card-img-top" src="@product.ImageUrl" alt="" />
-                    <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <!-- Product name-->
                                     <h5 class="fw-bolder">@product.Model</h5>
-                            <!-- Product price-->
                                     @product.Price
                         </div>
                     </div>
-                    <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <a class="btn btn-outline-dark mt-auto" asp-controller="Details" asp-action="Details" asp-route-id="@product.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
                     </div>
                 </div>
             </div>
-        
-        
-        
-       @* <div class="card col-4" style="width: 20rem; ">
-            @*<img class="card-img-top" style="width: 18rem;"
-                 src="@book.ImageUrl" alt="Book Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">@product.Model</h5>
-                <p class="mb-0">ModelType: @product.ModelType</p>
-                <p class="mb-0">Price: @product.Price</p>
-                <p >Make: @product.Make</p>
-            </div>
-
-            <a asp-controller="Details" asp-action="Details" asp-route-id="@product.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
-        </div>*@
             }
             </div>
         </div>

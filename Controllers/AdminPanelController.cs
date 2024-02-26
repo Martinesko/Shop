@@ -66,9 +66,17 @@ namespace Shop.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(AddProductViewModel model)
         {
-            if (ModelState.IsValid == false)
+            var m = await productService.GetAddedProduct();
+            if (!ModelState.IsValid)
             {
-               return RedirectToAction("Error500","Error");
+                model.ModelTypes = m.ModelTypes;
+                model.Sizes = m.Sizes;
+                model.Makes = m.Makes;
+                model.ModelTypes = m.ModelTypes;
+                model.Categories = m.Categories;
+                model.Colors = m.Colors;
+
+                return View(model);
             }
             await productService.AddProductAsync(model);
             return RedirectToAction("All", "Shop");
@@ -84,11 +92,20 @@ namespace Shop.Controllers
         [HttpPost]
         public async Task<IActionResult> EditProduct(AddProductViewModel model)
         {
-            if (ModelState.IsValid == false)
-            {
-               return RedirectToAction("Error500","Error");
-            }
-            
+                var m = await productService.GetAddedProduct();
+                if (!ModelState.IsValid)
+                {
+                    model.ModelTypes = m.ModelTypes;
+                    model.Sizes = m.Sizes;
+                    model.Makes = m.Makes;
+                    model.ModelTypes = m.ModelTypes;
+                    model.Categories = m.Categories;
+                    model.Colors = m.Colors;
+
+                    return View(model);
+                }
+
+
             await productService.SaveProductAsync(model,model.ProductId);
             return RedirectToAction("All", "Shop");
         }

@@ -67,6 +67,7 @@ namespace Shop.Services.OrderService
                 City = model.City,
                 CountryId = model.SelectedCountryId,
                 PostCode = model.PostCode,
+                Id = Guid.NewGuid(),
                 Street1 = model.Street1,
                 Street2 = model.Street2,
                 StreetNumber = model.StreetNumber
@@ -87,9 +88,7 @@ namespace Shop.Services.OrderService
             };
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == Id);
 
-            user.AddressId = address.Id;
             dbContext.ShoppingCarts.Remove(shoppingcart);
-
             dbContext.ShoppingCarts.Add(shoppingcart);
             dbContext.Orders.Add(order);
             await dbContext.SaveChangesAsync();

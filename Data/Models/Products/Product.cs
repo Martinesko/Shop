@@ -10,45 +10,41 @@ namespace Shop.Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Price is required")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Make is required")]
         [ForeignKey("Make")]
         public int MakeId { get; set; }
         public Make Make { get; set; } = null!;
 
-        [Required] 
-        public string Model { get; set; } = null!; 
+        [Required(ErrorMessage = "Model is required")]
+        public string Model { get; set; } = null!;
 
-        [Required]
-        [ForeignKey("ModelType")] 
+        [Required(ErrorMessage = "Model type is required")]
+        [ForeignKey("ModelType")]
         public int ModelTypeId { get; set; }
         public ModelType ModelType { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = "Category is required")]
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = "Size is required")]
         [ForeignKey("Size")]
         public int SizeId { get; set; }
         public Size Size { get; set; } = null!;
 
         public string? Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "ImageUrl is required")]
         public string ImageUrl { get; set; }
 
-
-        [Required]
+        [Required(ErrorMessage = "Color is required")]
         [ForeignKey("Color")]
         public int ColorId { get; set; }
         public Color Color { get; set; } = null!;
-
-
-
     }
 }

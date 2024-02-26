@@ -58,7 +58,7 @@ namespace Shop.Controllers
             return View(model);
         }
 
-        [HttpPost]
+
         public IActionResult EditAddress(AddressViewModel model)
         {
             var userId = Guid.Parse(GetUserId());
